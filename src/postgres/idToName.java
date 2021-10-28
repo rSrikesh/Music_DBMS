@@ -2,28 +2,34 @@ package postgres;
 
 import java.sql.*;
 
-public class login {
-    public static String main(String user, String pass){
+public class idToName {
+    public static String main(String id){
+        if (id.equals("admin")){
+            return "Admin";
+        }
+
+        String table = null;
+        char identifier = id.charAt(0);
+
+        if (identifier == 'A'){
+            table = "Artists";
+        }
+
         Connection c;
         Statement stmt;
-        String id_ = null;
-
+        String name = null;
         try {
             Class.forName("org.postgresql.Driver");
             c = DriverManager.getConnection(creds.url, creds.username, creds.password);
 
-            stmt = c.createStatement();
-            ResultSet rs = stmt.executeQuery( "SELECT * FROM userdetails;");
-            while ( rs.next() ) {
-                String id = rs.getString("user_id");
-                String password = rs.getString("password");
-                if (user.equals(id) && pass.equals(password)){
-                    id_ = id;
-                    break;
-                }
-            }
 
+            stmt = c.createStatement();
+            ResultSet rs = stmt.executeQuery( "SELECT name FROM " + table + " WHERE artist_id = '"+ id + "';");
+            while ( rs.next() ) {
+                name = rs.getString("name");
+            }
             rs.close();
+
             stmt.close();
 
             c.close();
@@ -36,6 +42,6 @@ public class login {
             System.exit(0);
         }
 
-    return idToName.main(id_);
+        return name;
     }
 }

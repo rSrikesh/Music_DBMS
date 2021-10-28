@@ -54,6 +54,7 @@ public class LoginPage implements ActionListener {
         frame.add(bg);
 
         frame.getRootPane().setDefaultButton(button);
+        frame.setResizable(false);
         frame.setVisible(true);
     }
 
