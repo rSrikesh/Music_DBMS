@@ -10,7 +10,7 @@ import java.awt.event.ActionListener;
 public class LoginPage implements ActionListener {
     private static JTextField userText;
     private static JPasswordField passText;
-    private static JLabel success;
+    private static JLabel result;
 
     public static void main(String[] args) {
         JFrame frame = new JFrame();
@@ -21,36 +21,40 @@ public class LoginPage implements ActionListener {
         frame.setIconImage(icon.getImage());
 
         JPanel panel = new JPanel();
-
         panel.setLayout(null);
-        panel.setBounds(0, 0, 427, 360);
-        panel.setBackground(Color.gray);
+        panel.setBounds(0, 0, 380, 360);
         frame.add(panel);
 
         JLabel userLabel = new JLabel("Username");
-        userLabel.setBounds(60, 80, 80, 25);
+        userLabel.setBounds(60, 100, 80, 25);
         panel.add(userLabel);
 
         userText = new JTextField(20);
-        userText.setBounds(150, 80, 165, 25);
+        userText.setBounds(150, 100, 165, 25);
         panel.add(userText);
 
         JLabel passwordLabel = new JLabel("Password");
-        passwordLabel.setBounds(60, 120, 80, 25);
+        passwordLabel.setBounds(60, 140, 80, 25);
         panel.add(passwordLabel);
 
         passText = new JPasswordField();
-        passText.setBounds(150, 120, 165, 25);
+        passText.setBounds(150, 140, 165, 25);
         panel.add(passText);
 
         JButton button = new JButton("Login");
-        button.setBounds(191, 160, 80, 25);
+        button.setBounds(191, 180, 80, 25);
         button.addActionListener(new LoginPage());
         panel.add(button);
 
-        success = new JLabel("");
-        success.setBounds(60, 190, 300, 25);
-        panel.add(success);
+        result = new JLabel("");
+        result.setBounds(60, 210, 300, 25);
+        panel.add(result);
+
+        JPanel bg_panel = new JPanel();
+        bg_panel.setLayout(null);
+        bg_panel.setBounds(300, 0, 333, 360);
+        bg_panel.setBackground(Color.black);
+        frame.add(bg_panel);
 
         frame.getRootPane().setDefaultButton(button);
         frame.setVisible(true);
@@ -66,11 +70,11 @@ public class LoginPage implements ActionListener {
         boolean login = !id.equals(null);
 
         if (login == true){
-            success.setText("Welcome " + id + "!");
+            result.setText("Welcome " + id + "!");
         }
 
         else {
-            success.setText("Invalid login information");
+            result.setText("Invalid login information");
         }
     }
 

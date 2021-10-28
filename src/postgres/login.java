@@ -1,18 +1,12 @@
 package postgres;
 
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.sql.*;
 
 public class login {
     public static String main(String user, String pass){
-
-        boolean login = false;
-        Connection c = null;
-        Statement stmt = null;
-        String id = null;
+        Connection c;
+        Statement stmt;
+        String id_ = null;
 
         try {
             Class.forName("org.postgresql.Driver");
@@ -23,10 +17,10 @@ public class login {
             stmt = c.createStatement();
             ResultSet rs = stmt.executeQuery( "SELECT * FROM userdetails;");
             while ( rs.next() ) {
-                id = rs.getString("user_id");
+                String id = rs.getString("user_id");
                 String password = rs.getString("password");
                 if (user.equals(id) && pass.equals(password)){
-                    login = true;
+                    id_ = id;
                     break;
                 }
             }
@@ -44,6 +38,6 @@ public class login {
             System.exit(0);
         }
 
-    return id;
+    return id_;
     }
 }
