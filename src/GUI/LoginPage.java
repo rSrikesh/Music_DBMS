@@ -17,7 +17,7 @@ public class LoginPage implements ActionListener {
         frame.setSize(640, 360);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        ImageIcon icon = new ImageIcon("C:\\Users\\sahit\\IdeaProjects\\Music_DBMS\\src\\images\\music.png");
+        ImageIcon icon = new ImageIcon("src\\images\\music.png");
         frame.setIconImage(icon.getImage());
 
         JPanel panel = new JPanel();
@@ -50,11 +50,8 @@ public class LoginPage implements ActionListener {
         result.setBounds(60, 210, 300, 25);
         panel.add(result);
 
-        JPanel bg_panel = new JPanel();
-        bg_panel.setLayout(null);
-        bg_panel.setBounds(300, 0, 333, 360);
-        bg_panel.setBackground(Color.black);
-        frame.add(bg_panel);
+        LoginImage bg = new LoginImage();
+        frame.add(bg);
 
         frame.getRootPane().setDefaultButton(button);
         frame.setVisible(true);
