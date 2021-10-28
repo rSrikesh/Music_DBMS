@@ -1,9 +1,11 @@
 package GUI;
+
+import postgres.login;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import postgres.login;
 
 public class LoginPage implements ActionListener {
     private static JTextField userText;
@@ -50,6 +52,7 @@ public class LoginPage implements ActionListener {
         success.setBounds(60, 190, 300, 25);
         panel.add(success);
 
+        frame.getRootPane().setDefaultButton(button);
         frame.setVisible(true);
     }
 
