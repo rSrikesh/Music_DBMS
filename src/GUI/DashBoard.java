@@ -1,3 +1,5 @@
+package GUI;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -55,7 +57,9 @@ import java.awt.*;
 }
 
 public class DashBoard{
-    public static void main(String[] args){
-        new ArtistDashBoard();
+    public static void main(String type){
+        if (type.equals("Artists")) {
+            new ArtistDashBoard();
+        }
     }
 }

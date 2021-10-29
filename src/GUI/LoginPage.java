@@ -10,9 +10,10 @@ public class LoginPage implements ActionListener {
     private static JTextField userText;
     private static JPasswordField passText;
     private static JLabel result;
+    private static JFrame frame;
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame();
+        frame = new JFrame();
         frame.setSize(640, 360);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
@@ -62,12 +63,18 @@ public class LoginPage implements ActionListener {
     public void actionPerformed(ActionEvent a) {
         String user = userText.getText();
         String pass = passText.getText();
-        String id = login.main(user, pass);
+        String[] userdetails = login.main(user, pass);
+        String name = userdetails[0];
+        String type = userdetails[1];
 
-        boolean login = !id.equals(null);
+        boolean login = !name.equals("");
 
         if (login == true){
-            result.setText("Welcome " + id + "!");
+            result.setText("Welcome " + name + "!");
+            if (type.equals("Artists")){
+                frame.setVisible(false);
+                DashBoard.main(type);
+            }
         }
 
         else {

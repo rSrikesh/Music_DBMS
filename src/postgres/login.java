@@ -3,10 +3,10 @@ package postgres;
 import java.sql.*;
 
 public class login {
-    public static String main(String user, String pass){
+    public static String[] main(String user, String pass){
         Connection c;
         Statement stmt;
-        String id_ = null;
+        String id_ = "";
 
         try {
             Class.forName("org.postgresql.Driver");
