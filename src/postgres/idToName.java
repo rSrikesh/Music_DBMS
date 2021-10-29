@@ -3,9 +3,13 @@ package postgres;
 import java.sql.*;
 
 public class idToName {
-    public static String main(String id){
+    public static String[] main(String id){
+        String[] output = new String[2];
+
         if (id.equals("admin")){
-            return "Admin";
+            output[0] = "Admin";
+            output[1] = "administrator";
+            return output;
         }
 
         String table = null;
@@ -42,6 +46,8 @@ public class idToName {
             System.exit(0);
         }
 
-        return name;
+        output[0] = name;
+        output[1] = table;
+        return output;
     }
 }
