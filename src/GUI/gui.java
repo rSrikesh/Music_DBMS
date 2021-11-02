@@ -95,7 +95,7 @@ public class gui extends javax.swing.JFrame {
         Home.setBackground(new java.awt.Color(51, 51, 51));
 
         jLabel11.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/posty.jpg"))); // NOI18N
+        jLabel11.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/artists/posty.jpg"))); // NOI18N
         jLabel11.setVerticalAlignment(javax.swing.SwingConstants.TOP);
         jLabel11.setAutoscrolls(true);
         jLabel11.setFocusable(false);
