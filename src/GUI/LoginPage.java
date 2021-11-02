@@ -1,6 +1,6 @@
 package GUI;
 
-import postgres.login;
+import postgres.User;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -61,19 +61,20 @@ public class LoginPage implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent a) {
-        String user = userText.getText();
-        String pass = passText.getText();
-        String[] userdetails = login.main(user, pass);
-        String name = userdetails[0];
-        String type = userdetails[1];
+        String username = userText.getText();
+        String password = passText.getText();
+//        String[] userdetails = login.main(user, pass);
 
-        boolean login = !name.equals("");
+        User user = new User(username, password);
+
+
+        boolean login = !user.name.equals("");
 
         if (login == true){
-            result.setText("Welcome " + name + "!");
-            if (type.equals("Artists")){
+            result.setText("Welcome " + user.name + "!");
+            if (user.userType.equals("Artists")){
                 frame.setVisible(false);
-                DashBoard.main(type);
+                gui.main(user);
             }
         }
 

@@ -4,11 +4,12 @@ import java.sql.*;
 
 public class idToName {
     public static String[] main(String id){
-        String[] output = new String[2];
+        String[] output = new String[3];
 
         if (id.equals("admin")){
             output[0] = "Admin";
             output[1] = "administrator";
+            output[2] = "ADMINI";
             return output;
         }
 
@@ -48,6 +49,7 @@ public class idToName {
 
         output[0] = name;
         output[1] = table;
+        output[2] = id;
         return output;
     }
 }

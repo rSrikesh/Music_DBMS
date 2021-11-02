@@ -15,9 +15,10 @@ public class login {
             stmt = c.createStatement();
             ResultSet rs = stmt.executeQuery( "SELECT * FROM userdetails;");
             while ( rs.next() ) {
-                String id = rs.getString("user_id");
+                String id = rs.getString("id");
+                String username = rs.getString("username");
                 String password = rs.getString("password");
-                if (user.equals(id) && pass.equals(password)){
+                if (user.equals(username) && pass.equals(password)){
                     id_ = id;
                     break;
                 }

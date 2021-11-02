@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package GUI;
-
+import postgres.User;
 /**
  *
  * @author sahit
@@ -13,8 +13,8 @@ public class gui extends javax.swing.JFrame {
     /**
      * Creates new form app
      */
-    public gui() {
-        initComponents();
+    public gui(User user) {
+        initComponents(user);
     }
 
     /**
@@ -24,7 +24,7 @@ public class gui extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
-    private void initComponents() {
+    private void initComponents(User user) {
 
         panelroot = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
@@ -61,7 +61,7 @@ public class gui extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 140, 160, 40));
+        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 120, 160, 40));
 
         jButton5.setBackground(new java.awt.Color(0, 0, 0));
         jButton5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -73,7 +73,7 @@ public class gui extends javax.swing.JFrame {
                 jButton5ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 380, 160, 40));
+        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 360, 160, 40));
 
         jButton6.setBackground(new java.awt.Color(0, 0, 0));
         jButton6.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -85,7 +85,7 @@ public class gui extends javax.swing.JFrame {
                 jButton6ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 160, 40));
+        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 280, 160, 40));
 
         jButton7.setBackground(new java.awt.Color(0, 0, 0));
         jButton7.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -97,7 +97,7 @@ public class gui extends javax.swing.JFrame {
                 jButton7ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 220, 160, 40));
+        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 160, 40));
 
         panelroot.add(jPanel1, java.awt.BorderLayout.LINE_START);
 
@@ -115,7 +115,7 @@ public class gui extends javax.swing.JFrame {
 
         jLabel12.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel12.setText("Welcome Post Malone");
+        jLabel12.setText("Welcome " + user.name);
         jLabel12.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
@@ -233,10 +233,8 @@ public class gui extends javax.swing.JFrame {
         jTabbedPane1.setSelectedIndex(1);
     }
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
+
+    public static void main(User user) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -263,7 +261,7 @@ public class gui extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new gui().setVisible(true);
+                new gui(user).setVisible(true);
             }
         });
     }
@@ -286,4 +284,3 @@ public class gui extends javax.swing.JFrame {
     private javax.swing.JPanel panelroot;
     // End of variables declaration
 }
-
