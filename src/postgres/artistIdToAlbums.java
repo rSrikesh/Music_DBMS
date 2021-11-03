@@ -1,7 +1,7 @@
 package postgres;
 import java.sql.*;
 
-public class Album {
+public class artistIdToAlbums {
     public static String[] main(String A_ID){
         Connection c;
         Statement stmt;
