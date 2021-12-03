@@ -3,17 +3,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package GUI;
-import postgres.User;
+import postgres.*;
 
 public class gui extends javax.swing.JFrame {
 
-    public gui(User user) {
-        initComponents(user);
+    public gui(User user, String a_ID) {
+        initComponents(user,a_ID);
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
-    private void initComponents(User user) {
+    private void initComponents(User user,String a_ID) {
 
         panelroot = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
@@ -114,6 +114,11 @@ public class gui extends javax.swing.JFrame {
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Albums");
+
+        int count = CountAlbums.main(a_ID);
+        System.out.println(a_ID);
+        System.out.println(count);
+
 
         jPanel3.setBackground(new java.awt.Color(51, 51, 51));
 
@@ -292,11 +297,11 @@ public class gui extends javax.swing.JFrame {
         // TODO add your handling code here:
     }
 
-    public static void main(User user) {
+    public static void main(User user,String A_ID) {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new gui(user).setVisible(true);
+                new gui(user,A_ID).setVisible(true);
             }
         });
     }
