@@ -1,12 +1,12 @@
 package postgres;
 import java.sql.*;
-
+import java.text.*;
 
 public class PopularSongs{
-    public static Object[][] main(String A_ID){
+    public static String[][] main(String A_ID){
         Connection c;
         Statement stmt;
-        Object[][] popularSongs = new Object[5][5];
+        String[][] popularSongs = new String[5][5];
         try{
             Class.forName("org.postgresql.Driver");
             c = DriverManager.getConnection(creds.url,creds.username,creds.password);
@@ -23,10 +23,11 @@ public class PopularSongs{
             }
             ResultSet rs2 = stmt.executeQuery(sql+" order by views DESC limit 5");
             int i = 0;
+            NumberFormat formatter = new DecimalFormat("###,###,###");
             while(rs2.next()){
                 popularSongs[i][0] = String.valueOf(i+1);
                 popularSongs[i][1] = rs2.getString("name");
-                popularSongs[i][2] = rs2.getString("views");
+                popularSongs[i][2] = formatter.format(rs2.getInt("views"));
                 i++;
             }
         }catch(Exception e){
