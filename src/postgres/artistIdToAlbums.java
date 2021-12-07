@@ -5,7 +5,7 @@ public class artistIdToAlbums {
     public static String[] main(String A_ID){
         Connection c;
         Statement stmt;
-        String[] name;
+        // String[] name;
         try {
             Class.forName("org.postgresql.Driver");
             c = DriverManager.getConnection(creds.url, creds.username, creds.password);

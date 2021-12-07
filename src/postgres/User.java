@@ -1,5 +1,4 @@
 package postgres;
-import postgres.login;
 
 public class User {
     public String name, userid, userType;

@@ -1,7 +1,6 @@
 package GUI;
 
 import postgres.User;
-
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -73,8 +72,9 @@ public class LoginPage implements ActionListener {
         if (login == true){
             result.setText("Welcome " + user.name + "!");
             if (user.userType.equals("Artists")){
+                String id = user.userid;
                 frame.setVisible(false);
-                gui.main(user);
+                gui.main(user,id);
             }
         }
 
