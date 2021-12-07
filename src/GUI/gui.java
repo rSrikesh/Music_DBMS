@@ -127,8 +127,6 @@ public class gui extends javax.swing.JFrame {
         jLabel12.setVerticalAlignment(javax.swing.SwingConstants.TOP);
 
         int count = CountAlbums.main(A_ID);
-        System.out.println(A_ID);
-        System.out.println(count);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -227,13 +225,7 @@ public class gui extends javax.swing.JFrame {
         jTable1.setBackground(new java.awt.Color(51, 51, 51));
         jTable1.setForeground(new java.awt.Color(255, 255, 255));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
-                new Object [][] {
-                        {" 1", "song1", "views"},
-                        {" 2", "song2", "views"},
-                        {" 3", "song3", "views"},
-                        {" 4", "song4", "views"},
-                        {" 5", "song5", "views"}
-                },
+                PopularSongs.main(A_ID),
                 new String [] {
                         "", "", ""
                 }

@@ -3,10 +3,10 @@ import java.sql.*;
 
 
 public class PopularSongs{
-    public static String[][] main(String A_ID){
+    public static Object[][] main(String A_ID){
         Connection c;
         Statement stmt;
-        String[][] popularSongs = new String[5][5];
+        Object[][] popularSongs = new Object[5][5];
         try{
             Class.forName("org.postgresql.Driver");
             c = DriverManager.getConnection(creds.url,creds.username,creds.password);
@@ -24,8 +24,9 @@ public class PopularSongs{
             ResultSet rs2 = stmt.executeQuery(sql+" order by views DESC limit 5");
             int i = 0;
             while(rs2.next()){
-                popularSongs[0][i] = rs2.getString("name");
-                popularSongs[1][i] = rs2.getString("views");
+                popularSongs[i][0] = String.valueOf(i+1);
+                popularSongs[i][1] = rs2.getString("name");
+                popularSongs[i][2] = rs2.getString("views");
                 i++;
             }
         }catch(Exception e){
