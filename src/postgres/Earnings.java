@@ -1,15 +1,16 @@
 package postgres;
 import java.sql.*;
+import java.text.*;
 
 class Music_Object{
     public String song_name;
-    public int views;
-    public float Earnings;
+    public String views;
+    public String Earnings;
     public float Total_Earnings;
     Music_Object(){
         song_name = "";
-        views = 0;
-        Earnings = 0;
+        views = "";
+        Earnings = "";
         Total_Earnings = 0.0f;
     }
 }
@@ -38,11 +39,13 @@ public class Earnings {
             sql += " order by views desc limit 10";
             ResultSet rs1 = s.executeQuery(sql); 
             int i = 0;
+            NumberFormat formatter = new DecimalFormat("###,###,###");
+            NumberFormat formatter1 = new DecimalFormat("###,###,###.#");
             while(rs1.next()){
                 o[i] = new Music_Object();
                 o[i].song_name = rs1.getString("name");
-                o[i].views = rs1.getInt("views");
-                o[i].Earnings = o[i].views*payment_per_view;
+                o[i].views = formatter.format(rs1.getInt("views"));
+                o[i].Earnings = formatter1.format(rs1.getInt("views")*payment_per_view);
                 i++;
             }
             ResultSet rs2 = s.executeQuery(total);
