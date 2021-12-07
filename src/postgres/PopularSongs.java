@@ -1,11 +1,12 @@
 package postgres;
 import java.sql.*;
-import java.util.*;
+
 
 public class PopularSongs{
-    public static void main(String A_ID){
+    public static String[][] main(String A_ID){
         Connection c;
         Statement stmt;
+        String[][] popularSongs = new String[5][5];
         try{
             Class.forName("org.postgresql.Driver");
             c = DriverManager.getConnection(creds.url,creds.username,creds.password);
@@ -21,12 +22,15 @@ public class PopularSongs{
                 }
             }
             ResultSet rs2 = stmt.executeQuery(sql+" order by views DESC limit 5");
-            Map<String,Integer> hm = new LinkedHashMap<String,Integer>();
+            int i = 0;
             while(rs2.next()){
-                hm.put(rs2.getString("name"),rs2.getInt("views"));
+                popularSongs[0][i] = rs2.getString("name");
+                popularSongs[1][i] = rs2.getString("views");
+                i++;
             }
         }catch(Exception e){
             System.out.println(e);
         }
+        return popularSongs;
     }
 }
