@@ -11,8 +11,6 @@ public class gui extends javax.swing.JFrame {
         initComponents(user,A_ID);
     }
 
-    @SuppressWarnings("unchecked")
-    // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents(User user,String A_ID) {
         panelroot = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
