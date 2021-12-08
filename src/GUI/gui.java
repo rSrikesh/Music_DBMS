@@ -5,6 +5,10 @@
 package GUI;
 import postgres.*;
 
+import javax.swing.*;
+
+import static javax.swing.text.StyleConstants.Alignment;
+
 public class gui extends javax.swing.JFrame {
 
     public gui(User user,String A_ID) {
@@ -49,6 +53,7 @@ public class gui extends javax.swing.JFrame {
         jButton8 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setIconImage(new ImageIcon("src\\images\\music.png").getImage());
 
         panelroot.setLayout(new java.awt.BorderLayout());
 
@@ -289,19 +294,11 @@ public class gui extends javax.swing.JFrame {
         jTable2.setBackground(new java.awt.Color(51, 51, 51));
         jTable2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jTable2.setForeground(new java.awt.Color(255, 255, 255));
+
+        Earning_Object data = postgres.Earnings.main(A_ID);
+
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
-                new Object [][] {
-                        {"song", " views", "pay per view", "song earnings"},
-                        {"", null, null, null},
-                        {"", null, null, null},
-                        {"", null, null, null},
-                        {"", null, null, null},
-                        {"", null, null, null},
-                        {"", null, null, null},
-                        {"", null, null, null},
-                        {"", null, null, null},
-                        {"", null, null, null}
-                },
+                data.table,
                 new String [] {
                         "", "", "", ""
                 }
@@ -317,7 +314,7 @@ public class gui extends javax.swing.JFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/icons/icons8_money_50px.png"))); // NOI18N
-        jLabel5.setText("Total Earnings: $XXXXXX");
+        jLabel5.setText("Total Earnings: $" + data.total);
 
         javax.swing.GroupLayout EarningsLayout = new javax.swing.GroupLayout(Earnings);
         Earnings.setLayout(EarningsLayout);
@@ -485,6 +482,7 @@ public class gui extends javax.swing.JFrame {
 
     public static void main(User user,String A_ID) {
         /* Create and display the form */
+
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new gui(user,A_ID).setVisible(true);

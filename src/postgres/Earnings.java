@@ -6,8 +6,13 @@ public class Earnings {
     final static float payment_per_view = 0.01f;
     static float total_earnings = 0.0f;
 
-    public static String[][] main(String A_ID){
-        String[][] str = new String[11][4];
+    public static Earning_Object main(String A_ID){
+        Earning_Object obj = new Earning_Object();
+        obj.table[0][0] = "song";
+        obj.table[0][1] = "views";
+        obj.table[0][2] =  "pay per view";
+        obj.table[0][3] = "song earnings";
+
         Connection c;
         try{
             Class.forName("org.postgresql.Driver");
@@ -26,24 +31,24 @@ public class Earnings {
             String total = sql;
             sql += " order by views desc limit 10";
             ResultSet rs1 = s.executeQuery(sql); 
-            int i = 0;
+            int i = 1;
             NumberFormat formatter = new DecimalFormat("###,###,###");
             NumberFormat formatter1 = new DecimalFormat("###,###,###.#");
             while(rs1.next()){
-                str[i][0] = rs1.getString("name");
-                str[i][1] = formatter.format(rs1.getInt("views"));
-                str[i][2] = "0.05";
-                str[i][3] = formatter1.format(rs1.getInt("views")*payment_per_view);
+                obj.table[i][0] = rs1.getString("name");
+                obj.table[i][1] = formatter.format(rs1.getInt("views"));
+                obj.table[i][2] = "$0.05";
+                obj.table[i][3] = "$"+formatter1.format(rs1.getInt("views")*payment_per_view);
                 i++;
             }
             ResultSet rs2 = s.executeQuery(total);
             while(rs2.next()){
                 total_earnings += rs2.getInt("views")*payment_per_view;
             }
-            str[10][0] = formatter1.format(total_earnings);
+            obj.total = formatter1.format(total_earnings);
         }catch(Exception e){
             e.printStackTrace();
         }
-        return str;
+        return obj;
     }
 }
