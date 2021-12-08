@@ -2,24 +2,12 @@ package postgres;
 import java.sql.*;
 import java.text.*;
 
-class Music_Object{
-    public String song_name;
-    public String views;
-    public String Earnings;
-    public float Total_Earnings;
-    Music_Object(){
-        song_name = "";
-        views = "";
-        Earnings = "";
-        Total_Earnings = 0.0f;
-    }
-}
-
 public class Earnings {
     final static float payment_per_view = 0.01f;
     static float total_earnings = 0.0f;
-    public static Music_Object[] main(String A_ID){
-        Music_Object[] o = new Music_Object[10]; 
+
+    public static String[][] main(String A_ID){
+        String[][] str = new String[11][4];
         Connection c;
         try{
             Class.forName("org.postgresql.Driver");
@@ -42,20 +30,20 @@ public class Earnings {
             NumberFormat formatter = new DecimalFormat("###,###,###");
             NumberFormat formatter1 = new DecimalFormat("###,###,###.#");
             while(rs1.next()){
-                o[i] = new Music_Object();
-                o[i].song_name = rs1.getString("name");
-                o[i].views = formatter.format(rs1.getInt("views"));
-                o[i].Earnings = formatter1.format(rs1.getInt("views")*payment_per_view);
+                str[i][0] = rs1.getString("name");
+                str[i][1] = formatter.format(rs1.getInt("views"));
+                str[i][2] = "0.05";
+                str[i][3] = formatter1.format(rs1.getInt("views")*payment_per_view);
                 i++;
             }
             ResultSet rs2 = s.executeQuery(total);
             while(rs2.next()){
                 total_earnings += rs2.getInt("views")*payment_per_view;
             }
-            o[0].Total_Earnings = total_earnings;
+            str[10][0] = formatter1.format(total_earnings);
         }catch(Exception e){
             e.printStackTrace();
         }
-        return o;
+        return str;
     }
 }
