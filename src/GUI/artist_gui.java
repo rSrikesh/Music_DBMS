@@ -7,11 +7,9 @@ import postgres.*;
 
 import javax.swing.*;
 
-import static javax.swing.text.StyleConstants.Alignment;
+public class artist_gui extends javax.swing.JFrame {
 
-public class gui extends javax.swing.JFrame {
-
-    public gui(User user,String A_ID) {
+    public artist_gui(User user, String A_ID) {
         initComponents(user,A_ID);
     }
 
@@ -485,7 +483,7 @@ public class gui extends javax.swing.JFrame {
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new gui(user,A_ID).setVisible(true);
+                new artist_gui(user,A_ID).setVisible(true);
             }
         });
     }
