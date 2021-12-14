@@ -72,6 +72,7 @@ public class artist_gui extends javax.swing.JFrame {
         jButton1.setForeground(new Color(255, 255, 255));
         jButton1.setIcon(new ImageIcon(getClass().getResource("/icons/icons8_home_50px_1.png"))); // NOI18N
         jButton1.setText("Home");
+        jButton1.setFocusable(false);
         jButton1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -84,6 +85,7 @@ public class artist_gui extends javax.swing.JFrame {
         jButton5.setForeground(new Color(255, 255, 255));
         jButton5.setIcon(new ImageIcon(getClass().getResource("/icons/icons8_user_50px.png"))); // NOI18N
         jButton5.setText("Profile");
+        jButton5.setFocusable(false);
         jButton5.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -96,6 +98,7 @@ public class artist_gui extends javax.swing.JFrame {
         jButton6.setForeground(new Color(255, 255, 255));
         jButton6.setIcon(new ImageIcon(getClass().getResource("/icons/icons8_money_50px.png"))); // NOI18N
         jButton6.setText("Earnings");
+        jButton6.setFocusable(false);
         jButton6.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 jButton6ActionPerformed(evt);
@@ -108,6 +111,7 @@ public class artist_gui extends javax.swing.JFrame {
         jButton7.setForeground(new Color(255, 255, 255));
         jButton7.setIcon(new ImageIcon(getClass().getResource("/icons/icons8_music_50px_1.png"))); // NOI18N
         jButton7.setText("Popular");
+        jButton7.setFocusable(false);
         jButton7.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 jButton7ActionPerformed(evt);
@@ -146,6 +150,7 @@ public class artist_gui extends javax.swing.JFrame {
         jButton2.setBackground(new Color(51, 51, 51));
         jButton2.setText("jButton2");
         jButton2.setDebugGraphicsOptions(DebugGraphics.NONE_OPTION);
+        jButton2.setFocusable(false);
         jButton2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -156,6 +161,7 @@ public class artist_gui extends javax.swing.JFrame {
         jButton3.setBackground(new Color(51, 51, 51));
         jButton3.setText("jButton3");
         jButton3.setDebugGraphicsOptions(DebugGraphics.NONE_OPTION);
+        jButton3.setFocusable(false);
         jButton3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 jButton3ActionPerformed(evt);
@@ -166,6 +172,7 @@ public class artist_gui extends javax.swing.JFrame {
         jButton4.setBackground(new Color(51, 51, 51));
         jButton4.setText("jButton4");
         jButton4.setDebugGraphicsOptions(DebugGraphics.NONE_OPTION);
+        jButton4.setFocusable(false);
         jButton4.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 jButton4ActionPerformed(evt);
@@ -366,7 +373,7 @@ public class artist_gui extends javax.swing.JFrame {
 
         jTextField1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-//                jTextField1ActionPerformed(evt);
+               jTextField1ActionPerformed(evt);
             }
         });
 
@@ -389,6 +396,7 @@ public class artist_gui extends javax.swing.JFrame {
         jButton8.setBackground(new Color(51, 51, 51));
         jButton8.setFont(new Font("Tahoma", 1, 14)); // NOI18N
         jButton8.setText("Submit");
+        jButton8.setFocusable(false);
 
         GroupLayout ProfileLayout = new GroupLayout(Profile);
         Profile.setLayout(ProfileLayout);
