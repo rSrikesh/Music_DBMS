@@ -529,11 +529,11 @@ public class artist_gui extends javax.swing.JFrame {
         int count = ChangePassword.main(old,new_,A_ID );
         if(count==1)
         {
-            JOptionPane.showMessageDialog(null,"Password Changed Successfully","SetColor",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Password Changed Successfully","",JOptionPane.INFORMATION_MESSAGE);
         }
         else
         {
-            JOptionPane.showMessageDialog(null,"Password Not Changed","SetColor",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Password Not Changed","",JOptionPane.INFORMATION_MESSAGE);
         }
 
     }
