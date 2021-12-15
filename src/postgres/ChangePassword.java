@@ -10,9 +10,9 @@ public class ChangePassword {
             c = DriverManager.getConnection(creds.url,creds.username,creds.password);
             stmt = c.createStatement();
             String sql = "Update userdetails set password = '"+new_password+"' WHERE id = '" + A_ID+"' and password = '" + old_password +"';";
-            stmt.executeUpdate(sql);
+            int x = stmt.executeUpdate(sql);
             stmt.close();
-
+            return x;
         }catch(Exception e){
             e.printStackTrace();
             System.exit(0);
