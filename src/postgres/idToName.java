@@ -15,9 +15,15 @@ public class idToName {
 
         String table = null;
         char identifier = id.charAt(0);
-
+        String type = null;
         if (identifier == 'A'){
             table = "Artists";
+            type = "artist";
+        }
+
+        else if (identifier == 'M'){
+            table = "Manager";
+            type = "manager";
         }
 
         Connection c;
@@ -29,7 +35,7 @@ public class idToName {
 
 
             stmt = c.createStatement();
-            ResultSet rs = stmt.executeQuery( "SELECT name FROM " + table + " WHERE artist_id = '"+ id + "';");
+            ResultSet rs = stmt.executeQuery( "SELECT name FROM " + table + " WHERE " + type + "_id = '"+ id + "';");
             while ( rs.next() ) {
                 name = rs.getString("name");
             }

@@ -70,15 +70,16 @@ public class LoginPage implements ActionListener {
 
         if (login == true){
             result.setText("Welcome " + user.name + "!");
+            frame.dispose();
+            String id = user.userid;
+
             if (user.userType.equals("Artists")){
-                String id = user.userid;
-                frame.setVisible(false);
                 artist_gui.main(user,id);
             }
 
             else if (user.userType.equals("Managers")){
-                String id = user.userid;
-                frame.setVisible(false);
+//                manager_gui.main();
+
             }
         }
 

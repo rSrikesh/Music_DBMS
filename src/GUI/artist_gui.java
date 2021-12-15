@@ -532,12 +532,16 @@ public class artist_gui extends javax.swing.JFrame {
         if(count==1)
         {
             JOptionPane.showMessageDialog(null,"Password Changed Successfully","",JOptionPane.INFORMATION_MESSAGE);
+
+
         }
         else
         {
-            JOptionPane.showMessageDialog(null,"Password Not Changed","",JOptionPane.INFORMATION_MESSAGE);
+            JOptionPane.showMessageDialog(null,"Old Password incorrect","",JOptionPane.INFORMATION_MESSAGE);
         }
 
+        jTextField1.setText("");
+        jTextField2.setText("");
     }
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
