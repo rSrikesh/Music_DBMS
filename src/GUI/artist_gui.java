@@ -126,7 +126,7 @@ public class artist_gui extends javax.swing.JFrame {
         Home.setBackground(new Color(51, 51, 51));
 
         jLabel11.setHorizontalAlignment(SwingConstants.CENTER);
-        jLabel11.setIcon(new ImageIcon(getClass().getResource("/images/artists/A32123/profile.jpg"))); // NOI18N
+        jLabel11.setIcon(new ImageIcon(getClass().getResource("/images/artists/A32123/banner.jpg"))); // NOI18N
         jLabel11.setVerticalAlignment(SwingConstants.TOP);
         jLabel11.setAutoscrolls(true);
         jLabel11.setFocusable(false);
