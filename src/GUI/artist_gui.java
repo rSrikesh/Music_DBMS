@@ -123,10 +123,12 @@ public class artist_gui extends javax.swing.JFrame {
 
         jPanel2.setBackground(new Color(51, 51, 51));
 
+        String albums[] = artistIdToAlbums.main(A_ID);
+
         Home.setBackground(new Color(51, 51, 51));
 
         jLabel11.setHorizontalAlignment(SwingConstants.CENTER);
-        jLabel11.setIcon(new ImageIcon(getClass().getResource("/images/artists/A32123/banner.jpg"))); // NOI18N
+        jLabel11.setIcon(new ImageIcon(getClass().getResource("/images/artists/"+A_ID+"/banner.jpg"))); // NOI18N
         jLabel11.setVerticalAlignment(SwingConstants.TOP);
         jLabel11.setAutoscrolls(true);
         jLabel11.setFocusable(false);
@@ -146,7 +148,7 @@ public class artist_gui extends javax.swing.JFrame {
 
         jPanel3.setBackground(new Color(51, 51, 51));
 
-        jButton2.setIcon(new ImageIcon(getClass().getResource("/images/albums/AL18799.png"))); // NOI18N
+        jButton2.setIcon(new ImageIcon(getClass().getResource("/images/albums/"+albums[0]+".png"))); // NOI18N
         jButton2.setBackground(new Color(51, 51, 51));
         jButton2.setText("jButton2");
         jButton2.setDebugGraphicsOptions(DebugGraphics.NONE_OPTION);
@@ -157,7 +159,6 @@ public class artist_gui extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setIcon(new ImageIcon(getClass().getResource("/images/albums/AL18781.png"))); // NOI18N
         jButton3.setBackground(new Color(51, 51, 51));
         jButton3.setText("jButton3");
         jButton3.setDebugGraphicsOptions(DebugGraphics.NONE_OPTION);
@@ -184,9 +185,14 @@ public class artist_gui extends javax.swing.JFrame {
         }
 
         else if (count == 2){
+            jButton3.setIcon(new ImageIcon(getClass().getResource("/images/albums/"+albums[1]+".png"))); // NOI18N
             jButton4.setVisible(false);
         }
 
+        else if (count ==3){
+            jButton3.setIcon(new ImageIcon(getClass().getResource("/images/albums/"+albums[1]+".png"))); // NOI18N
+            jButton4.setIcon(new ImageIcon(getClass().getResource("/images/albums/"+albums[2]+".png"))); // NOI18N
+        }
         GroupLayout jPanel3Layout = new GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
