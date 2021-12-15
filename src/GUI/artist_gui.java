@@ -375,7 +375,7 @@ public class artist_gui extends javax.swing.JFrame {
         jLabel6.setFont(new Font("Tahoma", 0, 18)); // NOI18N
         jLabel6.setForeground(new Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(SwingConstants.LEFT);
-        jLabel6.setIcon(new ImageIcon(getClass().getResource("/icons/icons8_user_male_124px_2.png"))); // NOI18N
+        jLabel6.setIcon(new ImageIcon(getClass().getResource("/images/artists/"+A_ID+"/profile.jpg"))); // NOI18N
         jLabel6.setText(user.name);
         jLabel6.setHorizontalTextPosition(SwingConstants.CENTER);
         jLabel6.setVerticalTextPosition(SwingConstants.BOTTOM);
@@ -412,48 +412,49 @@ public class artist_gui extends javax.swing.JFrame {
         jButton8.setText("Submit");
         jButton8.setFocusable(false);
 
-        GroupLayout ProfileLayout = new GroupLayout(Profile);
+        javax.swing.GroupLayout ProfileLayout = new javax.swing.GroupLayout(Profile);
         Profile.setLayout(ProfileLayout);
         ProfileLayout.setHorizontalGroup(
-                ProfileLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                ProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(ProfileLayout.createSequentialGroup()
                                 .addGap(45, 45, 45)
-                                .addComponent(jLabel6, GroupLayout.PREFERRED_SIZE, 135, GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 300, Short.MAX_VALUE)
-                                .addGroup(ProfileLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                                .addGroup(ProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel7)
                                         .addGroup(ProfileLayout.createSequentialGroup()
                                                 .addGap(18, 18, 18)
-                                                .addGroup(ProfileLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jButton8, GroupLayout.PREFERRED_SIZE, 104, GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(jTextField2, GroupLayout.PREFERRED_SIZE, 362, GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(jTextField1, GroupLayout.PREFERRED_SIZE, 362, GroupLayout.PREFERRED_SIZE)
+                                                .addGroup(ProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
                                                         .addComponent(jLabel8)
                                                         .addComponent(jLabel9))))
                                 .addGap(170, 170, 170))
         );
         ProfileLayout.setVerticalGroup(
-                ProfileLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                ProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(ProfileLayout.createSequentialGroup()
                                 .addGap(95, 95, 95)
-                                .addGroup(ProfileLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                .addGroup(ProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(ProfileLayout.createSequentialGroup()
-                                                .addComponent(jLabel7, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel8, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jTextField1, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE))
-                                        .addComponent(jLabel6, GroupLayout.PREFERRED_SIZE, 145, GroupLayout.PREFERRED_SIZE))
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel9, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jTextField2, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
-                                .addGap(34, 34, 34)
-                                .addComponent(jButton8, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(104, Short.MAX_VALUE))
+                                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(28, 28, 28)
+                                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGap(34, 34, 34)
+                                                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addContainerGap(87, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("", Profile);
+
         GroupLayout jPanel2Layout = new GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
