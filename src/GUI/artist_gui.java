@@ -12,6 +12,12 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.File;
+
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
 
 public class artist_gui extends javax.swing.JFrame {
 
@@ -409,6 +415,11 @@ public class artist_gui extends javax.swing.JFrame {
         jButton8.setFont(new Font("Tahoma", 1, 14)); // NOI18N
         jButton8.setText("Submit");
         jButton8.setFocusable(false);
+        jButton8.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent evt) {
+                jButton8ActionPerformed(evt, A_ID);
+            }
+        });
 
         javax.swing.GroupLayout ProfileLayout = new javax.swing.GroupLayout(Profile);
         Profile.setLayout(ProfileLayout);        ProfileLayout.setHorizontalGroup(
@@ -512,6 +523,13 @@ public class artist_gui extends javax.swing.JFrame {
         // TODO add your handling code here:
     }
 
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt, String A_ID) {
+        String old = jTextField1.getText();
+        String new_ = jTextField2.getText();
+        ChangePassword.main(old,new_,A_ID );
+
+    }
+
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
@@ -528,6 +546,7 @@ public class artist_gui extends javax.swing.JFrame {
                 new artist_gui(user,A_ID).setVisible(true);
             }
         });
+
     }
 
     // Variables declaration - do not modify
