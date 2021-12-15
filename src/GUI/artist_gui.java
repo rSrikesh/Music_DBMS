@@ -12,12 +12,7 @@ import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.io.File;
 
-import java.io.FileNotFoundException;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Scanner;
 
 public class artist_gui extends javax.swing.JFrame {
 
@@ -526,7 +521,15 @@ public class artist_gui extends javax.swing.JFrame {
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt, String A_ID) {
         String old = jTextField1.getText();
         String new_ = jTextField2.getText();
-        ChangePassword.main(old,new_,A_ID );
+        int count = ChangePassword.main(old,new_,A_ID );
+        if(count==1)
+        {
+            JOptionPane.showMessageDialog(null,"Password Changed Successfully");
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null,"Password Not Changed");
+        }
 
     }
 
