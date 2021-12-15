@@ -179,6 +179,14 @@ public class artist_gui extends javax.swing.JFrame {
             }
         });
 
+        if (count == 1){
+            jButton3.setVisible(false);
+        }
+
+        else if (count == 2){
+            jButton4.setVisible(false);
+        }
+
         GroupLayout jPanel3Layout = new GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
         jPanel3Layout.setHorizontalGroup(
@@ -476,6 +484,9 @@ public class artist_gui extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>
+
+    private void jTextField1ActionPerformed(ActionEvent evt) {
+    }
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
         jTabbedPane1.setSelectedIndex(0);

@@ -62,7 +62,6 @@ public class LoginPage implements ActionListener {
     public void actionPerformed(ActionEvent a) {
         String username = userText.getText();
         String password = passText.getText();
-//        String[] userdetails = login.main(user, pass);
 
         User user = new User(username, password);
 
