@@ -59,9 +59,8 @@ public class artist_gui extends javax.swing.JFrame {
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setIconImage(new ImageIcon("src\\images\\music.png").getImage());
-
+        setResizable(false);
         panelroot.setLayout(new BorderLayout());
-
         jPanel1.setBackground(new Color(0, 0, 0));
         jPanel1.setForeground(new Color(255, 255, 255));
         jPanel1.setPreferredSize(new Dimension(200, 549));
@@ -485,7 +484,6 @@ public class artist_gui extends javax.swing.JFrame {
         jTabbedPane1.addTab("", Variable);
 
         panelroot.add(jPanel2, BorderLayout.CENTER);
-
         getContentPane().add(panelroot, BorderLayout.CENTER);
 
         pack();
