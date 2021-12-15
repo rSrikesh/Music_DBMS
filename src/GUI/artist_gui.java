@@ -7,6 +7,7 @@ import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
 import postgres.*;
 
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -519,16 +520,20 @@ public class artist_gui extends javax.swing.JFrame {
     }
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt, String A_ID) {
+        UIManager UI=new UIManager();
+        UIManager.put("OptionPane.background", Color.BLACK);
+        UIManager.put("Panel.background", Color.BLACK);
+        UIManager.put("OptionPane.messageForeground", Color.WHITE);
         String old = jTextField1.getText();
         String new_ = jTextField2.getText();
         int count = ChangePassword.main(old,new_,A_ID );
         if(count==1)
         {
-            JOptionPane.showMessageDialog(null,"Password Changed Successfully");
+            JOptionPane.showMessageDialog(null,"Password Changed Successfully","SetColor",JOptionPane.INFORMATION_MESSAGE);
         }
         else
         {
-            JOptionPane.showMessageDialog(null,"Password Not Changed");
+            JOptionPane.showMessageDialog(null,"Password Not Changed","SetColor",JOptionPane.INFORMATION_MESSAGE);
         }
 
     }
