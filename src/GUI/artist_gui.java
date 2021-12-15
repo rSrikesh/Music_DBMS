@@ -407,7 +407,6 @@ public class artist_gui extends javax.swing.JFrame {
             }
         });
 
-        jButton8.setBackground(new Color(51, 51, 51));
         jButton8.setFont(new Font("Tahoma", 1, 14)); // NOI18N
         jButton8.setText("Submit");
         jButton8.setFocusable(false);
