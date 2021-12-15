@@ -289,7 +289,7 @@ public class artist_gui extends javax.swing.JFrame {
                                 .addContainerGap(103, Short.MAX_VALUE))
         );
 
-        jLabel3.setIcon(new ImageIcon(getClass().getResource("/images/albums/AL18781.png"))); // NOI18N
+        jLabel3.setIcon(new ImageIcon(getClass().getResource("/images/albums/"+MostViewedSongAlbum.main(A_ID)+".png"))); // NOI18N
         jLabel3.setText("jLabel3");
 
         GroupLayout PopularLayout = new GroupLayout(Popular);
@@ -411,8 +411,7 @@ public class artist_gui extends javax.swing.JFrame {
         jButton8.setFocusable(false);
 
         javax.swing.GroupLayout ProfileLayout = new javax.swing.GroupLayout(Profile);
-        Profile.setLayout(ProfileLayout);
-        ProfileLayout.setHorizontalGroup(
+        Profile.setLayout(ProfileLayout);        ProfileLayout.setHorizontalGroup(
                 ProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(ProfileLayout.createSequentialGroup()
                                 .addGap(45, 45, 45)
