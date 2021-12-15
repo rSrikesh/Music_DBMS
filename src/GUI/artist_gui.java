@@ -52,10 +52,10 @@ public class artist_gui extends javax.swing.JFrame {
         Profile = new JPanel();
         jLabel6 = new JLabel();
         jLabel7 = new JLabel();
-        jTextField1 = new JTextField();
+        jTextField1 = new JPasswordField();
         jLabel8 = new JLabel();
         jLabel9 = new JLabel();
-        jTextField2 = new JTextField();
+        jTextField2 = new JPasswordField();
         jButton8 = new JButton();
         Variable = new javax.swing.JPanel();
 
@@ -388,7 +388,8 @@ public class artist_gui extends javax.swing.JFrame {
 
         jTextField1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-               jTextField1ActionPerformed(evt);
+        //        old ---> jTextField1ActionPerformed(evt);
+        jButton1ActionPerformed(evt);
             }
         });
 
@@ -517,6 +518,7 @@ public class artist_gui extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+        Variable.setBackground(Color.black);
     }
 
     private void jButton8ActionPerformed(java.awt.event.ActionEvent evt, String A_ID) {
