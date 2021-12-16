@@ -78,7 +78,7 @@ public class artist_gui extends javax.swing.JFrame {
         jButton1.setBackground(new Color(0, 0, 0));
         jButton1.setFont(new Font("Tahoma", 0, 14)); // NOI18N
         jButton1.setForeground(new Color(255, 255, 255));
-        jButton1.setIcon(new ImageIcon(getClass().getResource("/icons/icons8_home_50px_1.png"))); // NOI18N
+        jButton1.setIcon(new ImageIcon(getClass().getResource("/images/icons/icons8_home_50px_1.png"))); // NOI18N
         jButton1.setText("Home");
         jButton1.setFocusable(false);
         jButton1.addActionListener(new ActionListener() {
@@ -91,7 +91,7 @@ public class artist_gui extends javax.swing.JFrame {
         jButton5.setBackground(new Color(0, 0, 0));
         jButton5.setFont(new Font("Tahoma", 0, 14)); // NOI18N
         jButton5.setForeground(new Color(255, 255, 255));
-        jButton5.setIcon(new ImageIcon(getClass().getResource("/icons/icons8_user_50px.png"))); // NOI18N
+        jButton5.setIcon(new ImageIcon(getClass().getResource("/images/icons/icons8_user_50px.png"))); // NOI18N
         jButton5.setText("Profile");
         jButton5.setFocusable(false);
         jButton5.addActionListener(new ActionListener() {
@@ -104,7 +104,7 @@ public class artist_gui extends javax.swing.JFrame {
         jButton6.setBackground(new Color(0, 0, 0));
         jButton6.setFont(new Font("Tahoma", 0, 14)); // NOI18N
         jButton6.setForeground(new Color(255, 255, 255));
-        jButton6.setIcon(new ImageIcon(getClass().getResource("/icons/icons8_money_50px.png"))); // NOI18N
+        jButton6.setIcon(new ImageIcon(getClass().getResource("/images/icons/icons8_money_50px.png"))); // NOI18N
         jButton6.setText("Earnings");
         jButton6.setFocusable(false);
         jButton6.addActionListener(new ActionListener() {
@@ -117,7 +117,7 @@ public class artist_gui extends javax.swing.JFrame {
         jButton7.setBackground(new Color(0, 0, 0));
         jButton7.setFont(new Font("Tahoma", 0, 14)); // NOI18N
         jButton7.setForeground(new Color(255, 255, 255));
-        jButton7.setIcon(new ImageIcon(getClass().getResource("/icons/icons8_music_50px_1.png"))); // NOI18N
+        jButton7.setIcon(new ImageIcon(getClass().getResource("/images/icons/icons8_music_50px_1.png"))); // NOI18N
         jButton7.setText("Popular");
         jButton7.setFocusable(false);
         jButton7.addActionListener(new ActionListener() {
@@ -402,7 +402,7 @@ public class artist_gui extends javax.swing.JFrame {
 
         jLabel5.setFont(new Font("Tahoma", 0, 18)); // NOI18N
         jLabel5.setForeground(new Color(255, 255, 255));
-        jLabel5.setIcon(new ImageIcon(getClass().getResource("/icons/icons8_money_50px.png"))); // NOI18N
+        jLabel5.setIcon(new ImageIcon(getClass().getResource("/images/icons/icons8_money_50px.png"))); // NOI18N
         jLabel5.setText("Total Earnings: $" + data.total);
 
         GroupLayout EarningsLayout = new GroupLayout(Earnings);
