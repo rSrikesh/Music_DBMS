@@ -52,16 +52,22 @@ public class artist_gui extends javax.swing.JFrame {
         Profile = new JPanel();
         jLabel6 = new JLabel();
         jLabel7 = new JLabel();
-        jTextField1 = new JPasswordField();
+        oldpasswordfield = new JPasswordField();
         jLabel8 = new JLabel();
         jLabel9 = new JLabel();
-        jTextField2 = new JPasswordField();
+        newpasswordfield = new JPasswordField();
         jButton8 = new JButton();
-        Variable = new javax.swing.JPanel();
+        Variable = new JPanel();
+        jLabel10 = new JLabel();
+        jLabel13 = new JLabel();
+        jSeparator1 = new JSeparator();
+        jLabel14 = new JLabel();
+        jScrollPane3 = new JScrollPane();
+        jTable3 = new JTable();
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setIconImage(new ImageIcon("src\\images\\music.png").getImage());
-        setResizable(false);
+        setResizable(true);
         panelroot.setLayout(new BorderLayout());
         jPanel1.setBackground(new Color(0, 0, 0));
         jPanel1.setForeground(new Color(255, 255, 255));
@@ -386,7 +392,7 @@ public class artist_gui extends javax.swing.JFrame {
         jLabel7.setForeground(new Color(255, 255, 255));
         jLabel7.setText("Change password");
 
-        jTextField1.addActionListener(new ActionListener() {
+        oldpasswordfield.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
         //        old ---> jTextField1ActionPerformed(evt);
         jButton1ActionPerformed(evt);
@@ -403,7 +409,7 @@ public class artist_gui extends javax.swing.JFrame {
         jLabel9.setForeground(new Color(255, 255, 255));
         jLabel9.setText("Enter new password");
 
-        jTextField2.addActionListener(new ActionListener() {
+        newpasswordfield.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
 //                jTextField2ActionPerformed(evt);
             }
@@ -418,47 +424,145 @@ public class artist_gui extends javax.swing.JFrame {
             }
         });
 
-        javax.swing.GroupLayout ProfileLayout = new javax.swing.GroupLayout(Profile);
+        GroupLayout ProfileLayout = new GroupLayout(Profile);
         Profile.setLayout(ProfileLayout);        ProfileLayout.setHorizontalGroup(
-                ProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                ProfileLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(ProfileLayout.createSequentialGroup()
                                 .addGap(45, 45, 45)
-                                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 335, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
-                                .addGroup(ProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel6, GroupLayout.PREFERRED_SIZE, 335, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 100, Short.MAX_VALUE)
+                                .addGroup(ProfileLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                                         .addComponent(jLabel7)
                                         .addGroup(ProfileLayout.createSequentialGroup()
                                                 .addGap(18, 18, 18)
-                                                .addGroup(ProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 362, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addGroup(ProfileLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                                        .addComponent(jButton8, GroupLayout.PREFERRED_SIZE, 104, GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(newpasswordfield, GroupLayout.PREFERRED_SIZE, 362, GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(oldpasswordfield, GroupLayout.PREFERRED_SIZE, 362, GroupLayout.PREFERRED_SIZE)
                                                         .addComponent(jLabel8)
                                                         .addComponent(jLabel9))))
                                 .addGap(170, 170, 170))
         );
         ProfileLayout.setVerticalGroup(
-                ProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                ProfileLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(ProfileLayout.createSequentialGroup()
                                 .addGap(95, 95, 95)
-                                .addGroup(ProfileLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 339, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(ProfileLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel6, GroupLayout.PREFERRED_SIZE, 339, GroupLayout.PREFERRED_SIZE)
                                         .addGroup(ProfileLayout.createSequentialGroup()
-                                                .addComponent(jLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                                .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jLabel7, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(jLabel8, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(oldpasswordfield, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
                                                 .addGap(28, 28, 28)
-                                                .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                                .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jLabel9, GroupLayout.PREFERRED_SIZE, 39, GroupLayout.PREFERRED_SIZE)
+                                                .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+                                                .addComponent(newpasswordfield, GroupLayout.PREFERRED_SIZE, 40, GroupLayout.PREFERRED_SIZE)
                                                 .addGap(34, 34, 34)
-                                                .addComponent(jButton8, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                                .addComponent(jButton8, GroupLayout.PREFERRED_SIZE, 35, GroupLayout.PREFERRED_SIZE)))
                                 .addContainerGap(87, Short.MAX_VALUE))
         );
 
         jTabbedPane1.addTab("", Profile);
+
+        Variable.setBackground(new Color(51, 51, 51));
+        Variable.setLayout(new AbsoluteLayout());
+
+        jLabel10.setIcon(new ImageIcon(getClass().getResource("/images/albums/AL55528.png"))); // NOI18N
+        jLabel13.setFont(new Font("Tahoma", 0, 48)); // NOI18N
+        jLabel13.setForeground(new Color(255, 255, 255));
+        jLabel13.setText("ALBUM NAME");
+
+        jLabel14.setFont(new Font("Tahoma", 0, 18)); // NOI18N
+        jLabel14.setForeground(new Color(255, 255, 255));
+        jLabel14.setText("Artist  - X songs - format");
+
+        jTable3.setModel(new DefaultTableModel(
+                new Object [][] {
+                        {null, null, null},
+                        {null, null, null},
+                        {null, null, null},
+                        {null, null, null},
+                        {null, null, null},
+                        {null, null, null},
+                        {null, null, null},
+                        {null, null, null},
+                        {null, null, null},
+                        {null, null, null},
+                        {null, null, null},
+                        {null, null, null},
+                        {null, null, null},
+                        {null, null, null},
+                        {null, null, null}
+                },
+                new String [] {
+                        "", "", ""
+                }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                    false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        jTable3.setFocusable(false);
+        jTable3.setRequestFocusEnabled(false);
+        jTable3.setRowHeight(40);
+        jTable3.setRowSelectionAllowed(false);
+        jTable3.setSelectionBackground(new Color(255, 255, 255));
+        jTable3.setShowVerticalLines(false);
+        jTable3.getTableHeader().setReorderingAllowed(false);
+        jTable3.setUpdateSelectionOnSort(false);
+        jTable3.setVerifyInputWhenFocusTarget(false);
+        jScrollPane3.setViewportView(jTable3);
+        if (jTable3.getColumnModel().getColumnCount() > 0) {
+            jTable3.getColumnModel().getColumn(0).setResizable(false);
+            jTable3.getColumnModel().getColumn(1).setResizable(false);
+            jTable3.getColumnModel().getColumn(2).setResizable(false);
+        }
+
+        GroupLayout jPanel5Layout = new GroupLayout(Variable);
+        Variable.setLayout(jPanel5Layout);
+        jPanel5Layout.setHorizontalGroup(
+                jPanel5Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(39, 39, 39)
+                                .addComponent(jLabel10, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel5Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel13, GroupLayout.PREFERRED_SIZE, 487, GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel14, GroupLayout.PREFERRED_SIZE, 391, GroupLayout.PREFERRED_SIZE)))
+                        .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jSeparator1, GroupLayout.PREFERRED_SIZE, 992, GroupLayout.PREFERRED_SIZE))
+                        .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(10, 10, 10)
+                                .addComponent(jScrollPane3, GroupLayout.PREFERRED_SIZE, 984, GroupLayout.PREFERRED_SIZE))
+        );
+        jPanel5Layout.setVerticalGroup(
+                jPanel5Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel5Layout.createSequentialGroup()
+                                .addGap(29, 29, 29)
+                                .addGroup(jPanel5Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel10, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
+                                        .addGroup(jPanel5Layout.createSequentialGroup()
+                                                .addGap(23, 23, 23)
+                                                .addGroup(jPanel5Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                                                        .addComponent(jLabel13, GroupLayout.PREFERRED_SIZE, 99, GroupLayout.PREFERRED_SIZE)
+                                                        .addGroup(jPanel5Layout.createSequentialGroup()
+                                                                .addGap(89, 89, 89)
+                                                                .addComponent(jLabel14, GroupLayout.PREFERRED_SIZE, 38, GroupLayout.PREFERRED_SIZE)))))
+                                .addGap(34, 34, 34)
+                                .addComponent(jSeparator1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane3, GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE)
+                                .addContainerGap())
+        );
+
+        jTabbedPane1.addTab("", Variable);
 
         GroupLayout jPanel2Layout = new GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -477,18 +581,6 @@ public class artist_gui extends javax.swing.JFrame {
                                 .addContainerGap())
         );
 
-        GroupLayout jPanel5Layout = new GroupLayout(Variable);
-        Variable.setLayout(jPanel5Layout);
-        jPanel5Layout.setHorizontalGroup(
-                jPanel5Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                        .addGap(0, 1030, Short.MAX_VALUE)
-        );
-        jPanel5Layout.setVerticalGroup(
-                jPanel5Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                        .addGap(0, 521, Short.MAX_VALUE)
-        );
-
-        jTabbedPane1.addTab("", Variable);
 
         panelroot.add(jPanel2, BorderLayout.CENTER);
         getContentPane().add(panelroot, BorderLayout.CENTER);
@@ -526,30 +618,33 @@ public class artist_gui extends javax.swing.JFrame {
         UIManager.put("OptionPane.background", Color.BLACK);
         UIManager.put("Panel.background", Color.BLACK);
         UIManager.put("OptionPane.messageForeground", Color.WHITE);
-        String old = jTextField1.getText();
-        String new_ = jTextField2.getText();
+        String old = oldpasswordfield.getText();
+        String new_ = newpasswordfield.getText();
         int count = ChangePassword.main(old,new_,A_ID );
         if(count==1)
         {
             JOptionPane.showMessageDialog(null,"Password Changed Successfully","",JOptionPane.INFORMATION_MESSAGE);
-
-
         }
         else
         {
             JOptionPane.showMessageDialog(null,"Old Password incorrect","",JOptionPane.INFORMATION_MESSAGE);
         }
 
-        jTextField1.setText("");
-        jTextField2.setText("");
+        oldpasswordfield.setText("");
+        newpasswordfield.setText("");
     }
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+        Variable.setBackground(Color.red);
     }
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+    }
+
+    private void repaintAlbumPanel(){
+
     }
 
     public static void main(User user,String A_ID) {
@@ -568,7 +663,6 @@ public class artist_gui extends javax.swing.JFrame {
     private javax.swing.JPanel Home;
     private javax.swing.JPanel Popular;
     private javax.swing.JPanel Profile;
-    private javax.swing.JPanel Variable;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
@@ -578,8 +672,11 @@ public class artist_gui extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -592,13 +689,17 @@ public class artist_gui extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel Variable;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JTable jTable3;
+    private javax.swing.JPasswordField oldpasswordfield;
+    private javax.swing.JPasswordField newpasswordfield;
     private javax.swing.JPanel panelroot;
     // End of variables declaration
 }
