@@ -15,6 +15,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
+
 public class artist_gui extends javax.swing.JFrame {
 
     public artist_gui(User user, String A_ID) {
@@ -162,7 +163,7 @@ public class artist_gui extends javax.swing.JFrame {
         jButton2.setFocusable(false);
         jButton2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                jButton2ActionPerformed(evt, albums[0], user.name);
             }
         });
 
@@ -172,7 +173,7 @@ public class artist_gui extends javax.swing.JFrame {
         jButton3.setFocusable(false);
         jButton3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                jButton2ActionPerformed(evt, albums[1], user.name);
             }
         });
 
@@ -183,7 +184,7 @@ public class artist_gui extends javax.swing.JFrame {
         jButton4.setFocusable(false);
         jButton4.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                jButton4ActionPerformed(evt);
+                jButton2ActionPerformed(evt, albums[2], user.name);
             }
         });
 
@@ -257,9 +258,34 @@ public class artist_gui extends javax.swing.JFrame {
         Popular.setBackground(new Color(51, 51, 51));
 
         jPanel4.setBackground(new Color(51, 51, 51));
+//        jTable1.setFocusable(false);
+//
+//        jTable1.setBackground(new Color(51, 51, 51));
+//        jTable1.setForeground(new Color(255, 255, 255));
+//
+//
+//        jTable1.setFocusable(false);
+//        jTable1.setRequestFocusEnabled(false);
+//
+//        jTable1.setRowSelectionAllowed(false);
+//
+//        jTable1.setShowVerticalLines(false);
+//        jTable1.getTableHeader().setReorderingAllowed(false);
+//        jTable1.setUpdateSelectionOnSort(false);
+//        jTable1.setVerifyInputWhenFocusTarget(false);
 
         jTable1.setBackground(new Color(51, 51, 51));
         jTable1.setForeground(new Color(255, 255, 255));
+        jTable1.setFont(new Font("Tahoma", 0, 18)); // NOI18N
+        jTable1.setFocusable(false);
+        jTable1.setRequestFocusEnabled(false);
+        jTable1.setRowHeight(40);
+        jTable1.setRowSelectionAllowed(false);
+        jTable1.setSelectionBackground(new Color(255, 255, 255));
+        jTable1.setShowVerticalLines(false);
+        jTable1.getTableHeader().setReorderingAllowed(false);
+        jTable1.setUpdateSelectionOnSort(false);
+
         jTable1.setModel(new DefaultTableModel(
                 PopularSongs.main(A_ID),
                 new String [] {
@@ -328,6 +354,16 @@ public class artist_gui extends javax.swing.JFrame {
         jTable2.setFont(new Font("Tahoma", 0, 18)); // NOI18N
         jTable2.setForeground(new Color(255, 255, 255));
 
+        jTable2.setFocusable(false);
+        jTable2.setRequestFocusEnabled(false);
+
+        jTable2.setRowSelectionAllowed(false);
+
+        jTable2.setShowVerticalLines(false);
+        jTable2.getTableHeader().setReorderingAllowed(false);
+        jTable2.setUpdateSelectionOnSort(false);
+        jTable2.setVerifyInputWhenFocusTarget(false);
+
         Earning_Object data = postgres.Earnings.main(A_ID);
 
         jTable2.setModel(new DefaultTableModel(
@@ -336,6 +372,7 @@ public class artist_gui extends javax.swing.JFrame {
                         "", "", "", ""
                 }
         ));
+        jTable2.setFocusable(false);
         jTable2.setRowHeight(40);
         jTable2.setShowVerticalLines(false);
         jScrollPane2.setViewportView(jTable2);
@@ -466,38 +503,102 @@ public class artist_gui extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("", Profile);
 
+        GroupLayout jPanel2Layout = new GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+                jPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jTabbedPane1)
+                                .addContainerGap())
+        );
+        jPanel2Layout.setVerticalGroup(
+                jPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jTabbedPane1)
+                                .addContainerGap())
+        );
+
+
+        panelroot.add(jPanel2, BorderLayout.CENTER);
+        getContentPane().add(panelroot, BorderLayout.CENTER);
+
+        pack();
+    }// </editor-fold>
+
+    private void jTextField1ActionPerformed(ActionEvent evt) {
+    }
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
+        jTabbedPane1.setSelectedIndex(0);
+    }
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {
+        jTabbedPane1.setSelectedIndex(3);
+
+    }
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {
+        jTabbedPane1.setSelectedIndex(2);
+    }
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {
+        jTabbedPane1.setSelectedIndex(1);
+    }
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt, String album_id, String name) {
+        repaintAlbumPanel(AlbumClick.main(album_id), name);
+    }
+
+
+    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt, String A_ID) {
+        UIManager UI=new UIManager();
+        UIManager.put("OptionPane.background", Color.BLACK);
+        UIManager.put("Panel.background", Color.BLACK);
+        UIManager.put("OptionPane.messageForeground", Color.WHITE);
+        String old = oldpasswordfield.getText();
+        String new_ = newpasswordfield.getText();
+        int count = ChangePassword.main(old,new_,A_ID );
+        if(count==1)
+        {
+            JOptionPane.showMessageDialog(null,"Password Changed Successfully","",JOptionPane.INFORMATION_MESSAGE);
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null,"Old Password incorrect","",JOptionPane.INFORMATION_MESSAGE);
+        }
+
+        oldpasswordfield.setText("");
+        newpasswordfield.setText("");
+    }
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+        Variable.setBackground(Color.red);
+    }
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+    }
+
+    private void repaintAlbumPanel(Album a, String name){
         Variable.setBackground(new Color(51, 51, 51));
         Variable.setLayout(new AbsoluteLayout());
 
-        jLabel10.setIcon(new ImageIcon(getClass().getResource("/images/albums/AL55528.png"))); // NOI18N
+        jLabel10.setIcon(new ImageIcon(getClass().getResource("/images/albums/"+a.id+".png"))); // NOI18N
         jLabel13.setFont(new Font("Tahoma", 0, 48)); // NOI18N
         jLabel13.setForeground(new Color(255, 255, 255));
-        jLabel13.setText("ALBUM NAME");
+        jLabel13.setText(a.name);
 
         jLabel14.setFont(new Font("Tahoma", 0, 18)); // NOI18N
         jLabel14.setForeground(new Color(255, 255, 255));
-        jLabel14.setText("Artist  - X songs - format");
+        jLabel14.setText(name + " - "+ a.number_of_songs + " songs - " + a.format );
 
         jTable3.setModel(new DefaultTableModel(
-                new Object [][] {
-                        {null, null, null},
-                        {null, null, null},
-                        {null, null, null},
-                        {null, null, null},
-                        {null, null, null},
-                        {null, null, null},
-                        {null, null, null},
-                        {null, null, null},
-                        {null, null, null},
-                        {null, null, null},
-                        {null, null, null},
-                        {null, null, null},
-                        {null, null, null},
-                        {null, null, null},
-                        {null, null, null}
-                },
+                a.songs,
                 new String [] {
-                        "", "", ""
+                        "S.no", "Album name", "views"
                 }
         ) {
             boolean[] canEdit = new boolean [] {
@@ -508,6 +609,9 @@ public class artist_gui extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        jTable3.setBackground(new Color(51, 51, 51));
+        jTable3.setForeground(new Color(255, 255, 255));
+        jTable3.setFont(new Font("Tahoma", 0, 18)); // NOI18N
         jTable3.setFocusable(false);
         jTable3.setRequestFocusEnabled(false);
         jTable3.setRowHeight(40);
@@ -562,89 +666,15 @@ public class artist_gui extends javax.swing.JFrame {
                                 .addContainerGap())
         );
 
+        try{
+            jTabbedPane1.remove(4);
+        }
+        catch(Exception e){
+
+        }
+
         jTabbedPane1.addTab("", Variable);
-
-        GroupLayout jPanel2Layout = new GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-                jPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jTabbedPane1)
-                                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-                jPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addContainerGap()
-                                .addComponent(jTabbedPane1)
-                                .addContainerGap())
-        );
-
-
-        panelroot.add(jPanel2, BorderLayout.CENTER);
-        getContentPane().add(panelroot, BorderLayout.CENTER);
-
-        pack();
-    }// </editor-fold>
-
-    private void jTextField1ActionPerformed(ActionEvent evt) {
-    }
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
-        jTabbedPane1.setSelectedIndex(0);
-    }
-
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {
-        jTabbedPane1.setSelectedIndex(3);
-
-    }
-
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {
-        jTabbedPane1.setSelectedIndex(2);
-    }
-
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {
-        jTabbedPane1.setSelectedIndex(1);
-    }
-
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-        Variable.setBackground(Color.black);
-    }
-
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt, String A_ID) {
-        UIManager UI=new UIManager();
-        UIManager.put("OptionPane.background", Color.BLACK);
-        UIManager.put("Panel.background", Color.BLACK);
-        UIManager.put("OptionPane.messageForeground", Color.WHITE);
-        String old = oldpasswordfield.getText();
-        String new_ = newpasswordfield.getText();
-        int count = ChangePassword.main(old,new_,A_ID );
-        if(count==1)
-        {
-            JOptionPane.showMessageDialog(null,"Password Changed Successfully","",JOptionPane.INFORMATION_MESSAGE);
-        }
-        else
-        {
-            JOptionPane.showMessageDialog(null,"Old Password incorrect","",JOptionPane.INFORMATION_MESSAGE);
-        }
-
-        oldpasswordfield.setText("");
-        newpasswordfield.setText("");
-    }
-
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-        Variable.setBackground(Color.red);
-    }
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
-
-    private void repaintAlbumPanel(){
-
+        jTabbedPane1.setSelectedIndex(4);
     }
 
     public static void main(User user,String A_ID) {
