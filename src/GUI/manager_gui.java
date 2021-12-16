@@ -107,6 +107,7 @@ public class manager_gui extends javax.swing.JFrame {
                 editDetailsActionPerformed(evt);
             }
         });
+        editDetails.setVisible(false);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -162,7 +163,7 @@ public class manager_gui extends javax.swing.JFrame {
         albumButton1.setBackground(new java.awt.Color(51, 51, 51));
         albumButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         albumButton1.setIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/images/albums/"+a_albums[0]+".png"))));
-        albumButton1.setText("album 1");
+        albumButton1.setText("");
         albumButton1.setForeground(new java.awt.Color(255, 255, 255));
         albumButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         albumButton1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
@@ -177,7 +178,7 @@ public class manager_gui extends javax.swing.JFrame {
         albumButton2.setBackground(new java.awt.Color(51, 51, 51));
         albumButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         albumButton2.setIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/images/albums/" + a_albums[1] + ".png")))); // NOI18N
-        albumButton2.setText("album 2");
+        albumButton2.setText("");
         albumButton2.setForeground(new java.awt.Color(255, 255, 255));
         albumButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         albumButton2.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
@@ -191,8 +192,8 @@ public class manager_gui extends javax.swing.JFrame {
 
         albumButton3.setBackground(new java.awt.Color(51, 51, 51));
         albumButton3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        albumButton3.setIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/images/albums/"+a_albums[0]+".png")))); // NOI18N
-        albumButton3.setText("album 3");
+        albumButton3.setIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/images/albums/"+a_albums[2]+".png")))); // NOI18N
+        albumButton3.setText("");
         albumButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         albumButton3.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         albumButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -242,9 +243,9 @@ public class manager_gui extends javax.swing.JFrame {
                                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(47, 47, 47)
                                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(albumButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(albumButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(albumButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addComponent(albumButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(albumButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(albumButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addContainerGap(147, Short.MAX_VALUE))
         );
 
