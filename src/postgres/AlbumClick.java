@@ -1,5 +1,6 @@
 package postgres;
 import java.sql.*;
+import java.text.*;
 
 public class AlbumClick {
     public static Album main(String Album_ID) {
@@ -7,7 +8,7 @@ public class AlbumClick {
         album.id = Album_ID;
         Connection c;
         Statement stmt;
-
+        NumberFormat formatter = new DecimalFormat("###,###,###");
         try{
             Class.forName("org.postgresql.Driver");
             c = DriverManager.getConnection(creds.url, creds.username, creds.password);
@@ -35,11 +36,12 @@ public class AlbumClick {
             stmt = c.createStatement();
             String sql = "SELECT name,views FROM SONGS WHERE album_id = '"+Album_ID+"';";
             ResultSet rs = stmt.executeQuery(sql);
+
             int i = 0;
             while(rs.next()){
                 album.songs[i][0] = String.valueOf(i+1);
                 album.songs[i][1] = rs.getString("name");
-                album.songs[i][2] = rs.getString("views");
+                album.songs[i][2] = formatter.format(rs.getInt("views"));
                 i++;
             }
 
