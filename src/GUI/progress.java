@@ -39,7 +39,7 @@ public class progress extends javax.swing.JFrame {
                     jProgressBar1.setValue(i);
 //                    jProgressBar1.setIndeterminate(0);
 //                    jProgressBar1.setValue(progress);
-                    jProgressBar1.update(jProgressBar1.getGraphics());
+                    jProgressBar1.update(getGraphics());
                     sleep(120);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(progress.class.getName()).log(Level.SEVERE, null, ex);

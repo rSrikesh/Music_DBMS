@@ -80,7 +80,7 @@ public class LoginPage implements ActionListener {
             }
 
             else if (user.userType.equals("Manager")){
-                manager_gui.main();
+                manager_gui.main(user, id);
             }
         }
 

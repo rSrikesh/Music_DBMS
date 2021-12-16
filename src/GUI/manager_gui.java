@@ -1,10 +1,12 @@
 package GUI;
 
+import postgres.User;
+
 public class manager_gui extends javax.swing.JFrame {
-    public manager_gui() {
-        initComponents();
+    public manager_gui(User user, String id) {
+        initComponents(user, id);
     }
-    private void initComponents() {
+    private void initComponents(User user, String id) {
 
         jPanel1 = new javax.swing.JPanel();
         Earnings = new javax.swing.JButton();
@@ -117,7 +119,7 @@ public class manager_gui extends javax.swing.JFrame {
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 0, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel1.setText("Welcome Name");
+        jLabel1.setText("Welcome " + user.name);
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -427,10 +429,10 @@ public class manager_gui extends javax.swing.JFrame {
     }
 
 
-    public static void main() {
+    public static void main(User user, String id) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new manager_gui().setVisible(true);
+                new manager_gui(user, id).setVisible(true);
             }
         });
     }
