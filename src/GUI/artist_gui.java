@@ -68,7 +68,7 @@ public class artist_gui extends javax.swing.JFrame {
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setIconImage(new ImageIcon("src\\images\\music.png").getImage());
-        setResizable(true);
+        setResizable(false);
         panelroot.setLayout(new BorderLayout());
         jPanel1.setBackground(new Color(0, 0, 0));
         jPanel1.setForeground(new Color(255, 255, 255));
@@ -291,7 +291,17 @@ public class artist_gui extends javax.swing.JFrame {
                 new String [] {
                         "", "", ""
                 }
-        ));
+        )
+        {
+            boolean[] canEdit = new boolean [] {
+                    false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+
         jTable1.setRowHeight(40);
         jTable1.setShowVerticalLines(false);
         jScrollPane1.setViewportView(jTable1);
@@ -371,7 +381,16 @@ public class artist_gui extends javax.swing.JFrame {
                 new String [] {
                         "", "", "", ""
                 }
-        ));
+        )
+        {
+            boolean[] canEdit = new boolean [] {
+                    false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
         jTable2.setFocusable(false);
         jTable2.setRowHeight(40);
         jTable2.setShowVerticalLines(false);
