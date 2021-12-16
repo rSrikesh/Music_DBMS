@@ -10,6 +10,7 @@ public class AlbumInsert {
             c = DriverManager.getConnection(creds.url, creds.username, creds.password);
             stmt = c.createStatement();
             String sql = "INSERT INTO albums (album_id, artist_id, album_name, number_of_songs, audio_format, copyright_date) VALUES ('"+Album_ID+"','"+Artist_ID+"','"+Album_Name+"','"+Number_Of_Songs+"','"+Audio_Format+"','"+Date+"');";
+            System.out.println(sql);
             int x = stmt.executeUpdate(sql);
             return x;
         }catch(Exception e){

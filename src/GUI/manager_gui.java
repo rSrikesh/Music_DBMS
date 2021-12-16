@@ -341,7 +341,7 @@ public class manager_gui extends javax.swing.JFrame {
                 String format = formats[jComboBox3.getSelectedIndex()];
                 String date = jTextField6.getText();
                 int i = 10;
-                AlbumInsert.main("AL"+String.valueOf(10001+i), a_name, format, AlbumIDtoArtistID.main(a_id), number_of_songs,date);
+                AlbumInsert.main("AL"+String.valueOf(10001+i), a_name, format, a_id, number_of_songs,date);
 
                 jTextField11.setText("");
                 jTextField13.setText("");
@@ -374,7 +374,6 @@ public class manager_gui extends javax.swing.JFrame {
         jLabel24.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
         jLabel24.setText("Album Name");
-
         jButton3.setBackground(new java.awt.Color(51, 51, 51));
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Add song");
@@ -386,6 +385,7 @@ public class manager_gui extends javax.swing.JFrame {
             jTextField11.setText("");
             jTextField13.setText("");
             jComboBox1.setSelectedIndex(0);
+
             int a = 2;
                 SongInsert.main('S'+String.valueOf(900013+a), s_name, a_id, views);
             }
