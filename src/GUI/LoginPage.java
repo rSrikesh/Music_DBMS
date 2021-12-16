@@ -73,7 +73,7 @@ public class LoginPage implements ActionListener {
             frame.dispose();
 //            progress.main();
             String id = user.userid;
-            System.out.println(user.userType);
+
             if (user.userType.equals("Artists")){
                 artist_gui.main(user,id);
             }
