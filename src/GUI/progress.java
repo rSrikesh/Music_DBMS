@@ -39,7 +39,10 @@ public class progress extends javax.swing.JFrame {
             for(int i=min;i<=max;i++){
                 try {
                     jProgressBar1.setValue(i);
-                    sleep(150);
+//                    jProgressBar1.setIndeterminate(0);
+//                    jProgressBar1.setValue(progress);
+                    jProgressBar1.update(jProgressBar1.getGraphics());
+                    sleep(120);
                 } catch (InterruptedException ex) {
                     Logger.getLogger(progress.class.getName()).log(Level.SEVERE, null, ex);
                 }
@@ -113,11 +116,12 @@ public class progress extends javax.swing.JFrame {
     }// </editor-fold>
 
 
-    public static void main(String[] args) {
+    public static void DriveProgressBar() {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new progress().setVisible(true);
+
             }
         });
     }
