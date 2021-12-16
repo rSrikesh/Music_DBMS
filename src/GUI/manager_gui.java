@@ -2,6 +2,8 @@ package GUI;
 
 import postgres.*;
 
+import javax.swing.*;
+import java.io.File;
 import java.util.Objects;
 
 public class manager_gui extends javax.swing.JFrame {
@@ -445,6 +447,15 @@ public class manager_gui extends javax.swing.JFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
+        JFileChooser fileChooser = new JFileChooser();
+        fileChooser.setCurrentDirectory(new File("."));
+        fileChooser.showOpenDialog(null);
+        File f = fileChooser.getSelectedFile();
+        String fileName = f.getAbsolutePath();
+        System.out.println(fileName);
+
+
+
     }
 
 
