@@ -10,7 +10,7 @@ public class ManagerIdtoArtistId {
             Class.forName("org.postgresql.Driver");
             c = DriverManager.getConnection(creds.url, creds.username, creds.password);
             stmt = c.createStatement();
-            String sql = "SELECT artist_id FROM artists WHERE manager_id = '"+Manager_ID+"';";
+            String sql = "SELECT artist_id FROM manager WHERE manager_id = '"+Manager_ID+"';";
             ResultSet rs = stmt.executeQuery(sql);
             while(rs.next()) {
                 Artist_ID = rs.getString("artist_id");

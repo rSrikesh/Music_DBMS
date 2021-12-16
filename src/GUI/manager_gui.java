@@ -1,12 +1,14 @@
 package GUI;
 
-import postgres.User;
+import postgres.*;
+
+import java.util.Objects;
 
 public class manager_gui extends javax.swing.JFrame {
-    public manager_gui(User user, String id) {
-        initComponents(user, id);
+    public manager_gui(User user) {
+        initComponents(user);
     }
-    private void initComponents(User user, String id) {
+    private void initComponents(User user) {
 
         jPanel1 = new javax.swing.JPanel();
         Earnings = new javax.swing.JButton();
@@ -127,12 +129,21 @@ public class manager_gui extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Artist's albums");
+
+        String a_id = ManagerIdtoArtistId.main(user.userid);
+
+        String a_name = idToName.main(a_id)[0];
+        jLabel2.setText(a_name + "'s albums");
+
+        int count = CountAlbums.main(a_id);
+
+        String[] a_albums = artistIdToAlbums.main(a_id);
 
         albumButton1.setBackground(new java.awt.Color(51, 51, 51));
         albumButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        albumButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/albums/AL18799.png"))); // NOI18N
+        albumButton1.setIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/images/albums/"+a_albums[0]+".png"))));
         albumButton1.setText("album 1");
+        albumButton1.setForeground(new java.awt.Color(255, 255, 255));
         albumButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         albumButton1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         albumButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
@@ -142,13 +153,16 @@ public class manager_gui extends javax.swing.JFrame {
             }
         });
 
+
         albumButton2.setBackground(new java.awt.Color(51, 51, 51));
         albumButton2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        albumButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/albums/AL55528.png"))); // NOI18N
+        albumButton2.setIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/images/albums/" + a_albums[1] + ".png")))); // NOI18N
         albumButton2.setText("album 2");
+        albumButton2.setForeground(new java.awt.Color(255, 255, 255));
         albumButton2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         albumButton2.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         albumButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
+        albumButton2.setVisible(false);
         albumButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 albumButton2ActionPerformed(evt);
@@ -157,12 +171,22 @@ public class manager_gui extends javax.swing.JFrame {
 
         albumButton3.setBackground(new java.awt.Color(51, 51, 51));
         albumButton3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        albumButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/albums/AL55529.png"))); // NOI18N
-        albumButton3.setText("album 1");
+        albumButton3.setIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/images/albums/"+a_albums[0]+".png")))); // NOI18N
+        albumButton3.setText("album 3");
         albumButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         albumButton3.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         albumButton3.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        albumButton3.addActionListener(new java.awt.event.ActionListener() {
+        albumButton3.setForeground(new java.awt.Color(255, 255, 255));
+        albumButton3.setVisible(false);
+
+        if (count>1){
+            albumButton2.setVisible(true);
+            if (count > 2){
+                albumButton3.setVisible(true);
+            }
+        }
+
+            albumButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 albumButton3ActionPerformed(evt);
             }
@@ -179,7 +203,7 @@ public class manager_gui extends javax.swing.JFrame {
                                                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 395, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(jPanel3Layout.createSequentialGroup()
                                                 .addGap(19, 19, 19)
-                                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 269, javax.swing.GroupLayout.PREFERRED_SIZE))
                                         .addGroup(jPanel3Layout.createSequentialGroup()
                                                 .addGap(27, 27, 27)
                                                 .addComponent(albumButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -210,23 +234,14 @@ public class manager_gui extends javax.swing.JFrame {
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel3.setText("Artist's earning per song");
+        jLabel3.setText(a_name + "'s earning per song");
+        int songs = numberOfSongs.main(a_id, a_albums);
+        Earning_Object data = AllSongEarnings.main(a_id, songs);
 
         jTable1.setBackground(new java.awt.Color(51, 51, 51));
         jTable1.setForeground(new java.awt.Color(255, 255, 255));
         jTable1.setModel(new javax.swing.table.DefaultTableModel(
-                new Object [][] {
-                        {null, null, null},
-                        {null, null, null},
-                        {null, null, null},
-                        {null, null, null},
-                        {null, null, null},
-                        {null, null, null},
-                        {null, null, null},
-                        {null, null, null},
-                        {null, null, null},
-                        {null, null, null}
-                },
+                data.table,
                 new String [] {
                         "", "", ""
                 }
@@ -242,7 +257,7 @@ public class manager_gui extends javax.swing.JFrame {
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Total Earnings: $");
+        jLabel4.setText("Total Earnings: $"+ data.total);
 
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
@@ -436,7 +451,7 @@ public class manager_gui extends javax.swing.JFrame {
     public static void main(User user, String id) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new manager_gui(user, id).setVisible(true);
+                new manager_gui(user).setVisible(true);
             }
         });
     }

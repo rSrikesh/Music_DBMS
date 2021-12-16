@@ -5,8 +5,8 @@ import java.text.*;
 public class AllSongEarnings{
     final static float payment_per_view = 0.01f;
     static float total_earnings = 0.0f;
-    public static Earning_Object main(String A_ID){
-        Earning_Object obj = new Earning_Object(40);
+    public static Earning_Object main(String A_ID, int songs){
+        Earning_Object obj = new Earning_Object(songs);
         obj.table[0][0] = "song";
         obj.table[0][1] = "views";
         obj.table[0][2] =  "pay per view";
