@@ -44,6 +44,7 @@ public class manager_gui extends javax.swing.JFrame {
         Earnings.setBackground(new java.awt.Color(0, 0, 0));
         Earnings.setForeground(new java.awt.Color(255, 255, 255));
         Earnings.setText("Earnings");
+        Earnings.setFocusable(false);
         Earnings.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 EarningsActionPerformed(evt);
@@ -53,6 +54,7 @@ public class manager_gui extends javax.swing.JFrame {
         Home.setBackground(new java.awt.Color(0, 0, 0));
         Home.setForeground(new java.awt.Color(255, 255, 255));
         Home.setText("Home");
+        Home.setFocusable(false);
         Home.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 HomeMouseClicked(evt);
@@ -67,6 +69,7 @@ public class manager_gui extends javax.swing.JFrame {
         addAlbum.setBackground(new java.awt.Color(0, 0, 0));
         addAlbum.setForeground(new java.awt.Color(255, 255, 255));
         addAlbum.setText("Add Album");
+        addAlbum.setFocusable(false);
         addAlbum.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 addAlbumActionPerformed(evt);
@@ -76,6 +79,7 @@ public class manager_gui extends javax.swing.JFrame {
         editDetails.setBackground(new java.awt.Color(0, 0, 0));
         editDetails.setForeground(new java.awt.Color(255, 255, 255));
         editDetails.setText("Edit details");
+        editDetails.setFocusable(false);
         editDetails.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 editDetailsActionPerformed(evt);
