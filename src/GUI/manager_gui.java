@@ -226,6 +226,7 @@ public class manager_gui extends javax.swing.JFrame {
                 }
         ));
         jTable1.setFocusable(false);
+        jTable1.setRowSelectionAllowed(false);
         jTable1.setRowHeight(40);
         jTable1.setSelectionBackground(new java.awt.Color(255, 255, 255));
         jTable1.setShowVerticalLines(false);
@@ -426,25 +427,7 @@ public class manager_gui extends javax.swing.JFrame {
     }
 
 
-    public static void main(String[] args) {
-
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(manager_gui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(manager_gui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(manager_gui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(manager_gui.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-
+    public static void main() {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new manager_gui().setVisible(true);
