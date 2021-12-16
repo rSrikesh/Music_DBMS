@@ -1,19 +1,14 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package GUI;
 import org.netbeans.lib.awtextra.AbsoluteConstraints;
 import org.netbeans.lib.awtextra.AbsoluteLayout;
 import postgres.*;
-
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 
 
 public class artist_gui extends javax.swing.JFrame {
@@ -258,21 +253,6 @@ public class artist_gui extends javax.swing.JFrame {
         Popular.setBackground(new Color(51, 51, 51));
 
         jPanel4.setBackground(new Color(51, 51, 51));
-//        jTable1.setFocusable(false);
-//
-//        jTable1.setBackground(new Color(51, 51, 51));
-//        jTable1.setForeground(new Color(255, 255, 255));
-//
-//
-//        jTable1.setFocusable(false);
-//        jTable1.setRequestFocusEnabled(false);
-//
-//        jTable1.setRowSelectionAllowed(false);
-//
-//        jTable1.setShowVerticalLines(false);
-//        jTable1.getTableHeader().setReorderingAllowed(false);
-//        jTable1.setUpdateSelectionOnSort(false);
-//        jTable1.setVerifyInputWhenFocusTarget(false);
 
         jTable1.setBackground(new Color(51, 51, 51));
         jTable1.setForeground(new Color(255, 255, 255));
@@ -592,14 +572,6 @@ public class artist_gui extends javax.swing.JFrame {
         newpasswordfield.setText("");
     }
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-        Variable.setBackground(Color.red);
-    }
-
-    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
 
     private void repaintAlbumPanel(Album a, String name){
         Variable.setBackground(new Color(51, 51, 51));

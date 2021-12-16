@@ -78,8 +78,7 @@ public class LoginPage implements ActionListener {
             }
 
             else if (user.userType.equals("Managers")){
-//                manager_gui.main();
-
+//                manager_gui.main(user, id);
             }
         }
 
