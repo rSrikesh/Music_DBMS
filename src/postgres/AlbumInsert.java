@@ -2,7 +2,7 @@ package postgres;
 import java.sql.*;
 
 public class AlbumInsert {
-    public static int main(String Album_ID, String Album_Name, String Audio_Format, String Artist_ID, int Number_Of_Songs,String Date) {
+    public static int main(String Album_ID, String Album_Name, String Audio_Format, String Artist_ID, String Number_Of_Songs,String Date) {
         Connection c;
         Statement stmt;
         try{

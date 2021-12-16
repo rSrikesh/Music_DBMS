@@ -329,14 +329,23 @@ public class manager_gui extends javax.swing.JFrame {
         jLabel14.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(255, 255, 255));
         jLabel14.setText("copyright date");
+        String[] formats = {"mp3", "aac", "flac"};
 
         jButton2.setBackground(new java.awt.Color(51, 51, 51));
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("jButton2");
-
-        jTextField11.addActionListener(new java.awt.event.ActionListener() {
+        jButton2.setText("Add Album");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
+                String a_name = jTextField12.getText();
+                String number_of_songs = jTextField4.getText();
+                String format = formats[jComboBox3.getSelectedIndex()];
+                String date = jTextField6.getText();
+                int i = 10;
+                AlbumInsert.main("AL"+String.valueOf(10001+i), a_name, format, AlbumIDtoArtistID.main(a_id), number_of_songs,date);
 
+                jTextField11.setText("");
+                jTextField13.setText("");
+                jComboBox1.setSelectedIndex(0);
             }
         });
 
@@ -344,11 +353,6 @@ public class manager_gui extends javax.swing.JFrame {
         jLabel21.setForeground(new java.awt.Color(255, 255, 255));
         jLabel21.setText("Song Name");
 
-        jTextField12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-
-            }
-        });
 
         jLabel22.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel22.setForeground(new java.awt.Color(255, 255, 255));
@@ -358,13 +362,14 @@ public class manager_gui extends javax.swing.JFrame {
         jLabel23.setForeground(new java.awt.Color(255, 255, 255));
         jLabel23.setText("views");
 
-        jTextField13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
+        String[] album_names = new String[a_albums.length];
+        int a = 0;
+        for (String i: a_albums){
+            album_names[a] = AlbumIDtoName.main(i);
+            a++;
+        }
 
-            }
-        });
-
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(album_names));
 
         jLabel24.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel24.setForeground(new java.awt.Color(255, 255, 255));
@@ -372,14 +377,21 @@ public class manager_gui extends javax.swing.JFrame {
 
         jButton3.setBackground(new java.awt.Color(51, 51, 51));
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
-        jButton3.setText("jButton3");
+        jButton3.setText("Add song");
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-
+            String s_name = jTextField11.getText();
+            String views = jTextField13.getText();
+            String album_name = album_names[jComboBox1.getSelectedIndex()];
+            jTextField11.setText("");
+            jTextField13.setText("");
+            jComboBox1.setSelectedIndex(0);
+            int a = 2;
+                SongInsert.main('S'+String.valueOf(900013+a), s_name, a_id, views);
             }
         });
 
-        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox3.setModel(new javax.swing.DefaultComboBoxModel<>(formats));
 
         javax.swing.GroupLayout jPanel7Layout = new javax.swing.GroupLayout(jPanel7);
         jPanel7.setLayout(jPanel7Layout);
@@ -569,7 +581,7 @@ public class manager_gui extends javax.swing.JFrame {
                                 .addContainerGap(110, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("", jPanel8);
+//        jTabbedPane1.addTab("", jPanel8);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);

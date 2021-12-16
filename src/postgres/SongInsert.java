@@ -2,7 +2,7 @@ package postgres;
 import java.sql.*;
 
 public class SongInsert {
-    public static int main(String Song_ID,String Name, String Album_ID,int views){
+    public static int main(String Song_ID,String Name, String Album_ID,String views){
         Connection c;
         Statement stmt;
         try{
