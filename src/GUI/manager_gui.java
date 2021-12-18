@@ -192,7 +192,6 @@ public class manager_gui extends javax.swing.JFrame {
 
         albumButton3.setBackground(new java.awt.Color(51, 51, 51));
         albumButton3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        albumButton3.setIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/images/albums/"+a_albums[2]+".png")))); // NOI18N
         albumButton3.setText("");
         albumButton3.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         albumButton3.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
@@ -203,6 +202,7 @@ public class manager_gui extends javax.swing.JFrame {
         if (count>1){
             albumButton2.setVisible(true);
             if (count > 2){
+                albumButton3.setIcon(new javax.swing.ImageIcon(Objects.requireNonNull(getClass().getResource("/images/albums/"+a_albums[2]+".png"))));
                 albumButton3.setVisible(true);
             }
         }
