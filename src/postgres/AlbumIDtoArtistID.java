@@ -17,7 +17,6 @@ public class AlbumIDtoArtistID {
             }
         }catch(Exception e){
             e.printStackTrace();
-            System.exit(0);
         }
         return Artist_ID;
     }

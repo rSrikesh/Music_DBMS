@@ -17,7 +17,6 @@ public class AlbumIDtoName {
             }
         }catch(Exception e){
             e.printStackTrace();
-            System.exit(0);
         }
         return Album_Name;
     }

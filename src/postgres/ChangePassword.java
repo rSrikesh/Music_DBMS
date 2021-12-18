@@ -15,7 +15,6 @@ public class ChangePassword {
             return x;
         }catch(Exception e){
             e.printStackTrace();
-            System.exit(0);
         }
 
         return 0;

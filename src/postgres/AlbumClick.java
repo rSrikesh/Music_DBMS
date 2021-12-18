@@ -25,7 +25,6 @@ public class AlbumClick {
 
         }catch(Exception e){
             e.printStackTrace();
-            System.exit(0);
         }
 
         album.songs = new String[album.number_of_songs][3];
@@ -50,7 +49,6 @@ public class AlbumClick {
 
         }catch(Exception e){
             e.printStackTrace();
-            System.exit(0);
         }
 
         return album;

@@ -26,7 +26,6 @@ public class MostViewedSongAlbum {
             }
         }catch(Exception e){
             e.printStackTrace();
-            System.exit(0);
         }
         return Album_id;
     }

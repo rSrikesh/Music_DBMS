@@ -342,7 +342,12 @@ public class manager_gui extends javax.swing.JFrame {
                 String format = formats[jComboBox3.getSelectedIndex()];
                 String date = jTextField6.getText();
                 int i = 10;
-                AlbumInsert.main("AL"+String.valueOf(10001+i), a_name, format, a_id, number_of_songs,date);
+                int x = AlbumInsert.main("AL"+String.valueOf(10001+i), a_name, format, a_id, number_of_songs,date);
+                if(x==1){
+                        JOptionPane.showMessageDialog(null,"Album Inserted Successfully");
+                }else{
+                        JOptionPane.showMessageDialog(null,"Album Insertion Failed");
+                }
 
                 jTextField11.setText("");
                 jTextField13.setText("");
@@ -388,7 +393,11 @@ public class manager_gui extends javax.swing.JFrame {
             jComboBox1.setSelectedIndex(0);
 
             int a = 2;
-                SongInsert.main('S'+String.valueOf(900013+a), s_name, AlbumNametoID.main(album_name), views);
+                int z = SongInsert.main('S'+String.valueOf(900013+a), s_name, AlbumNametoID.main(album_name), views);
+                if(z==1)
+                        JOptionPane.showMessageDialog(null,"Song Inserted Successfully");
+                else
+                        JOptionPane.showMessageDialog(null,"Song Insertion Failed");
             }
         });
 

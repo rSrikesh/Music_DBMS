@@ -31,7 +31,6 @@ public class artistIdToAlbums {
 
         catch (Exception e) {
             e.printStackTrace();
-            System.exit(0);
         }
         return new String[]{null,null,null};
     }
