@@ -388,7 +388,7 @@ public class manager_gui extends javax.swing.JFrame {
             jComboBox1.setSelectedIndex(0);
 
             int a = 2;
-                SongInsert.main('S'+String.valueOf(900013+a), s_name, a_id, views);
+                SongInsert.main('S'+String.valueOf(900013+a), s_name, AlbumNametoID.main(album_name), views);
             }
         });
 
