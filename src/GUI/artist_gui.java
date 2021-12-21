@@ -5,39 +5,38 @@ import org.netbeans.lib.awtextra.AbsoluteLayout;
 import postgres.*;
 
 import javax.swing.*;
-import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 
-public class artist_gui extends javax.swing.JFrame {
+public class artist_gui extends JFrame {
 
-    public artist_gui(User user, String A_ID) {
-        initComponents(user,A_ID);
+    public artist_gui(User user) {
+        initComponents(user);
     }
 
-    private void initComponents(User user,String A_ID) {
+    private void initComponents(User user) {
         panelroot = new JPanel();
-        jPanel1 = new JPanel();
-        jButton1 = new JButton();
-        jButton5 = new JButton();
-        jButton6 = new JButton();
-        jButton7 = new JButton();
-        jPanel2 = new JPanel();
-        jTabbedPane1 = new JTabbedPane();
+        leftPanel = new JPanel();
+        HomeButton = new JButton();
+        ProfileButton = new JButton();
+        EarningsButton = new JButton();
+        PopularButton = new JButton();
+        rightPanel = new JPanel();
+        jTabbedPane = new JTabbedPane();
         Home = new JPanel();
-        jLabel11 = new JLabel();
-        jLabel12 = new JLabel();
-        jLabel1 = new JLabel();
-        jPanel3 = new JPanel();
-        jButton2 = new JButton();
-        jButton3 = new JButton();
-        jButton4 = new JButton();
+        bannerLabel = new JLabel();
+        WelcomeLabel = new JLabel();
+        AlbumIntroLabel = new JLabel();
+        AlbumButtonsPanel = new JPanel();
+        albumButton1 = new JButton();
+        albumButton2 = new JButton();
+        albumButton3 = new JButton();
         Popular = new JPanel();
         jPanel4 = new JPanel();
         jScrollPane1 = new JScrollPane();
-        jTable1 = new JTable();
+        PopularTable = new JTable();
         jLabel2 = new JLabel();
         jLabel3 = new JLabel();
         Earnings = new JPanel();
@@ -65,158 +64,150 @@ public class artist_gui extends javax.swing.JFrame {
         setIconImage(new ImageIcon("src\\images\\music.png").getImage());
         setResizable(false);
         panelroot.setLayout(new BorderLayout());
-        jPanel1.setBackground(new Color(0, 0, 0));
-        jPanel1.setForeground(new Color(255, 255, 255));
-        jPanel1.setPreferredSize(new Dimension(200, 549));
-        jPanel1.setLayout(new AbsoluteLayout());
+        leftPanel.setBackground(new Color(0, 0, 0));
+        leftPanel.setForeground(new Color(255, 255, 255));
+        leftPanel.setPreferredSize(new Dimension(200, 549));
+        leftPanel.setLayout(new AbsoluteLayout());
 
-        jButton1.setBackground(new Color(0, 0, 0));
-        jButton1.setFont(new Font("Tahoma", 0, 14)); // NOI18N
-        jButton1.setForeground(new Color(255, 255, 255));
-        jButton1.setIcon(new ImageIcon(getClass().getResource("/images/icons/icons8_home_50px_1.png"))); // NOI18N
-        jButton1.setText("Home");
-        jButton1.setFocusable(false);
-        jButton1.addActionListener(new ActionListener() {
+        HomeButton.setBackground(new Color(0, 0, 0));
+        HomeButton.setFont(new Font("Tahoma", 0, 14));
+        HomeButton.setForeground(new Color(255, 255, 255));
+        HomeButton.setIcon(new ImageIcon(getClass().getResource("/images/icons/icons8_home_50px_1.png")));
+        HomeButton.setText("Home");
+        HomeButton.setFocusable(false);
+        HomeButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                HomeButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton1, new AbsoluteConstraints(20, 120, 160, 40));
+        leftPanel.add(HomeButton, new AbsoluteConstraints(20, 120, 160, 40));
 
-        jButton5.setBackground(new Color(0, 0, 0));
-        jButton5.setFont(new Font("Tahoma", 0, 14)); // NOI18N
-        jButton5.setForeground(new Color(255, 255, 255));
-        jButton5.setIcon(new ImageIcon(getClass().getResource("/images/icons/icons8_user_50px.png"))); // NOI18N
-        jButton5.setText("Profile");
-        jButton5.setFocusable(false);
-        jButton5.addActionListener(new ActionListener() {
+        PopularButton.setBackground(new Color(0, 0, 0));
+        PopularButton.setFont(new Font("Tahoma", 0, 14));
+        PopularButton.setForeground(new Color(255, 255, 255));
+        PopularButton.setIcon(new ImageIcon(getClass().getResource("/images/icons/icons8_music_50px_1.png"))); // NOI18N
+        PopularButton.setText("Popular");
+        PopularButton.setFocusable(false);
+        PopularButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                jButton5ActionPerformed(evt);
+                PopularButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton5, new AbsoluteConstraints(20, 360, 160, 40));
+        leftPanel.add(PopularButton, new AbsoluteConstraints(20, 200, 160, 40));
 
-        jButton6.setBackground(new Color(0, 0, 0));
-        jButton6.setFont(new Font("Tahoma", 0, 14)); // NOI18N
-        jButton6.setForeground(new Color(255, 255, 255));
-        jButton6.setIcon(new ImageIcon(getClass().getResource("/images/icons/icons8_money_50px.png"))); // NOI18N
-        jButton6.setText("Earnings");
-        jButton6.setFocusable(false);
-        jButton6.addActionListener(new ActionListener() {
+        EarningsButton.setBackground(new Color(0, 0, 0));
+        EarningsButton.setFont(new Font("Tahoma", 0, 14));
+        EarningsButton.setForeground(new Color(255, 255, 255));
+        EarningsButton.setIcon(new ImageIcon(getClass().getResource("/images/icons/icons8_money_50px.png")));
+        EarningsButton.setText("Earnings");
+        EarningsButton.setFocusable(false);
+        EarningsButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                jButton6ActionPerformed(evt);
+                EarningsButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton6, new AbsoluteConstraints(20, 280, 160, 40));
+        leftPanel.add(EarningsButton, new AbsoluteConstraints(20, 280, 160, 40));
 
-        jButton7.setBackground(new Color(0, 0, 0));
-        jButton7.setFont(new Font("Tahoma", 0, 14)); // NOI18N
-        jButton7.setForeground(new Color(255, 255, 255));
-        jButton7.setIcon(new ImageIcon(getClass().getResource("/images/icons/icons8_music_50px_1.png"))); // NOI18N
-        jButton7.setText("Popular");
-        jButton7.setFocusable(false);
-        jButton7.addActionListener(new ActionListener() {
+        ProfileButton.setBackground(new Color(0, 0, 0));
+        ProfileButton.setFont(new Font("Tahoma", 0, 14));
+        ProfileButton.setForeground(new Color(255, 255, 255));
+        ProfileButton.setIcon(new ImageIcon(getClass().getResource("/images/icons/icons8_user_50px.png")));
+        ProfileButton.setText("Profile");
+        ProfileButton.setFocusable(false);
+        ProfileButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                jButton7ActionPerformed(evt);
+                ProfileButtonActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton7, new AbsoluteConstraints(20, 200, 160, 40));
+        leftPanel.add(ProfileButton, new AbsoluteConstraints(20, 360, 160, 40));
 
-        panelroot.add(jPanel1, BorderLayout.LINE_START);
+        panelroot.add(leftPanel, BorderLayout.LINE_START);
 
-        jPanel2.setBackground(new Color(51, 51, 51));
 
-        String albums[] = artistIdToAlbums.main(A_ID);
+        rightPanel.setBackground(new Color(0, 0, 0));
+
+        String albums[] = artistIdToAlbums.main(user.userid);
 
         Home.setBackground(new Color(51, 51, 51));
 
-        jLabel11.setHorizontalAlignment(SwingConstants.CENTER);
-        jLabel11.setIcon(new ImageIcon(getClass().getResource("/images/artists/"+A_ID+"/banner.jpg"))); // NOI18N
-        jLabel11.setVerticalAlignment(SwingConstants.TOP);
-        jLabel11.setAutoscrolls(true);
-        jLabel11.setFocusable(false);
-        jLabel11.setMaximumSize(new Dimension(300, 300));
-        jLabel11.setMinimumSize(new Dimension(300, 300));
+        bannerLabel.setHorizontalAlignment(SwingConstants.CENTER);
+        bannerLabel.setIcon(new ImageIcon(getClass().getResource("/images/artists/"+user.userid+"/banner.jpg")));
+        bannerLabel.setVerticalAlignment(SwingConstants.TOP);
+        bannerLabel.setFocusable(false);
 
-        jLabel12.setFont(new Font("Tahoma", 1, 24)); // NOI18N
-        jLabel12.setForeground(new Color(255, 255, 255));
-        jLabel12.setText("Welcome " + user.name);
-        jLabel12.setVerticalAlignment(SwingConstants.TOP);
+        WelcomeLabel.setFont(new Font("Tahoma", 1, 24));
+        WelcomeLabel.setForeground(new Color(255, 255, 255));
+        WelcomeLabel.setText("Welcome " + user.name);
 
-        int count = CountAlbums.main(A_ID);
+        int count = CountAlbums.main(user.userid);
 
-        jLabel1.setFont(new Font("Tahoma", 0, 18)); // NOI18N
-        jLabel1.setForeground(new Color(255, 255, 255));
-        jLabel1.setText("Albums");
+        AlbumIntroLabel.setFont(new Font("Tahoma", 0, 18));
+        AlbumIntroLabel.setForeground(new Color(255, 255, 255));
+        AlbumIntroLabel.setText("Albums");
 
-        jPanel3.setBackground(new Color(51, 51, 51));
+        AlbumButtonsPanel.setBackground(new Color(51, 51, 51));
 
-        jButton2.setIcon(new ImageIcon(getClass().getResource("/images/albums/"+albums[0]+".png"))); // NOI18N
-        jButton2.setBackground(new Color(51, 51, 51));
-        jButton2.setText("jButton2");
-        jButton2.setDebugGraphicsOptions(DebugGraphics.NONE_OPTION);
-        jButton2.setFocusable(false);
-        jButton2.addActionListener(new ActionListener() {
+        albumButton1.setIcon(new ImageIcon(getClass().getResource("/images/albums/"+albums[0]+".png")));
+        albumButton1.setBackground(new Color(51, 51, 51));
+        albumButton1.setFocusable(false);
+        albumButton1.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 jButton2ActionPerformed(evt, albums[0], user.name);
             }
         });
 
-        jButton3.setBackground(new Color(51, 51, 51));
-        jButton3.setText("jButton3");
-        jButton3.setDebugGraphicsOptions(DebugGraphics.NONE_OPTION);
-        jButton3.setFocusable(false);
-        jButton3.addActionListener(new ActionListener() {
+        albumButton2.setBackground(new Color(51, 51, 51));
+        albumButton2.setFocusable(false);
+        albumButton2.setVisible(false);
+        albumButton2.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 jButton2ActionPerformed(evt, albums[1], user.name);
             }
         });
 
 
-        jButton4.setBackground(new Color(51, 51, 51));
-        jButton4.setText("jButton4");
-        jButton4.setDebugGraphicsOptions(DebugGraphics.NONE_OPTION);
-        jButton4.setFocusable(false);
-        jButton4.addActionListener(new ActionListener() {
+        albumButton3.setBackground(new Color(51, 51, 51));
+        albumButton3.setVisible(false);
+        albumButton3.setFocusable(false);
+        albumButton3.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
                 jButton2ActionPerformed(evt, albums[2], user.name);
             }
         });
 
-        if (count == 1){
-            jButton3.setVisible(false);
-        }
-
-        else if (count == 2){
-            jButton3.setIcon(new ImageIcon(getClass().getResource("/images/albums/"+albums[1]+".png"))); // NOI18N
-            jButton4.setVisible(false);
+        if (count == 2){
+            albumButton2.setIcon(new ImageIcon(getClass().getResource("/images/albums/"+albums[1]+".png")));
+            albumButton2.setVisible(true);
         }
 
         else if (count ==3){
-            jButton3.setIcon(new ImageIcon(getClass().getResource("/images/albums/"+albums[1]+".png"))); // NOI18N
-            jButton4.setIcon(new ImageIcon(getClass().getResource("/images/albums/"+albums[2]+".png"))); // NOI18N
+            albumButton2.setIcon(new ImageIcon(getClass().getResource("/images/albums/"+albums[1]+".png")));
+            albumButton3.setIcon(new ImageIcon(getClass().getResource("/images/albums/"+albums[2]+".png")));
+            albumButton2.setVisible(true);
+            albumButton3.setVisible(true);
         }
-        GroupLayout jPanel3Layout = new GroupLayout(jPanel3);
-        jPanel3.setLayout(jPanel3Layout);
-        jPanel3Layout.setHorizontalGroup(
-                jPanel3Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                        .addGroup(jPanel3Layout.createSequentialGroup()
+
+        GroupLayout albumPanelLayout = new GroupLayout(AlbumButtonsPanel);
+        AlbumButtonsPanel.setLayout(albumPanelLayout);
+        albumPanelLayout.setHorizontalGroup(
+                albumPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(albumPanelLayout.createSequentialGroup()
                                 .addGap(58, 58, 58)
-                                .addComponent(jButton2, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(albumButton1, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
                                 .addGap(61, 61, 61)
-                                .addComponent(jButton3, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(albumButton2, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
                                 .addGap(70, 70, 70)
-                                .addComponent(jButton4, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(albumButton3, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
                                 .addContainerGap(315, Short.MAX_VALUE))
         );
-        jPanel3Layout.setVerticalGroup(
-                jPanel3Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                        .addGroup(GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+        albumPanelLayout.setVerticalGroup(
+                albumPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
+                        .addGroup(GroupLayout.Alignment.TRAILING, albumPanelLayout.createSequentialGroup()
                                 .addContainerGap(19, Short.MAX_VALUE)
-                                .addGroup(jPanel3Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jButton2, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jButton3, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jButton4, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE))
+                                .addGroup(albumPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+                                        .addComponent(albumButton1, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(albumButton2, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(albumButton3, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE))
                                 .addContainerGap())
         );
 
@@ -226,48 +217,47 @@ public class artist_gui extends javax.swing.JFrame {
                 HomeLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(HomeLayout.createSequentialGroup()
                                 .addGroup(HomeLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel11, GroupLayout.PREFERRED_SIZE, 965, GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(bannerLabel, GroupLayout.PREFERRED_SIZE, 965, GroupLayout.PREFERRED_SIZE)
                                         .addGroup(HomeLayout.createSequentialGroup()
                                                 .addContainerGap()
                                                 .addGroup(HomeLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jLabel12, GroupLayout.PREFERRED_SIZE, 965, GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(jLabel1, GroupLayout.PREFERRED_SIZE, 76, GroupLayout.PREFERRED_SIZE)
-                                                        .addComponent(jPanel3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
+                                                        .addComponent(WelcomeLabel, GroupLayout.PREFERRED_SIZE, 965, GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(AlbumIntroLabel, GroupLayout.PREFERRED_SIZE, 76, GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(AlbumButtonsPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))))
                                 .addContainerGap())
         );
         HomeLayout.setVerticalGroup(
                 HomeLayout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(HomeLayout.createSequentialGroup()
-                                .addComponent(jLabel11, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(bannerLabel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel12)
+                                .addComponent(WelcomeLabel)
                                 .addGap(18, 18, 18)
-                                .addComponent(jLabel1, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
+                                .addComponent(AlbumIntroLabel, GroupLayout.PREFERRED_SIZE, 31, GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(jPanel3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(AlbumButtonsPanel, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("", Home);
+        jTabbedPane.addTab("", Home);
 
         Popular.setBackground(new Color(51, 51, 51));
 
         jPanel4.setBackground(new Color(51, 51, 51));
 
-        jTable1.setBackground(new Color(51, 51, 51));
-        jTable1.setForeground(new Color(255, 255, 255));
-        jTable1.setFont(new Font("Tahoma", 0, 18)); // NOI18N
-        jTable1.setFocusable(false);
-        jTable1.setRequestFocusEnabled(false);
-        jTable1.setRowHeight(40);
-        jTable1.setRowSelectionAllowed(false);
-        jTable1.setSelectionBackground(new Color(255, 255, 255));
-        jTable1.setShowVerticalLines(false);
-        jTable1.getTableHeader().setReorderingAllowed(false);
-        jTable1.setUpdateSelectionOnSort(false);
+        PopularTable.setBackground(new Color(51, 51, 51));
+        PopularTable.setForeground(new Color(255, 255, 255));
+        PopularTable.setFont(new Font("Tahoma", 0, 18));
+        PopularTable.setFocusable(false);
+        PopularTable.setRequestFocusEnabled(false);
+        PopularTable.setRowHeight(40);
+        PopularTable.setRowSelectionAllowed(false);
+        PopularTable.setSelectionBackground(new Color(255, 255, 255));
+        PopularTable.setShowVerticalLines(false);
+        PopularTable.getTableHeader().setReorderingAllowed(false);
 
-        jTable1.setModel(new DefaultTableModel(
-                PopularSongs.main(A_ID),
+        PopularTable.setModel(new javax.swing.table.DefaultTableModel(
+                PopularSongs.main(user.userid),
                 new String [] {
                         "", "", ""
                 }
@@ -282,11 +272,11 @@ public class artist_gui extends javax.swing.JFrame {
             }
         });
 
-        jTable1.setRowHeight(40);
-        jTable1.setShowVerticalLines(false);
-        jScrollPane1.setViewportView(jTable1);
+        PopularTable.setRowHeight(40);
+        PopularTable.setShowVerticalLines(false);
+        jScrollPane1.setViewportView(PopularTable);
 
-        jLabel2.setFont(new Font("Tahoma", 0, 36)); // NOI18N
+        jLabel2.setFont(new Font("Tahoma", 0, 36));
         jLabel2.setForeground(new Color(255, 255, 255));
         jLabel2.setText("Most Viewed Songs");
 
@@ -313,7 +303,7 @@ public class artist_gui extends javax.swing.JFrame {
                                 .addContainerGap(103, Short.MAX_VALUE))
         );
 
-        jLabel3.setIcon(new ImageIcon(getClass().getResource("/images/albums/"+MostViewedSongAlbum.main(A_ID)+".png"))); // NOI18N
+        jLabel3.setIcon(new ImageIcon(getClass().getResource("/images/albums/"+MostViewedSongAlbum.main(user.userid)+".png")));
         jLabel3.setText("jLabel3");
 
         GroupLayout PopularLayout = new GroupLayout(Popular);
@@ -336,12 +326,12 @@ public class artist_gui extends javax.swing.JFrame {
                                 .addGap(149, 149, 149))
         );
 
-        jTabbedPane1.addTab("", Popular);
+        jTabbedPane.addTab("", Popular);
         Earnings.setBackground(new Color(51, 51, 51));
         Earnings.setForeground(new Color(255, 255, 255));
 
         jTable2.setBackground(new Color(51, 51, 51));
-        jTable2.setFont(new Font("Tahoma", 0, 18)); // NOI18N
+        jTable2.setFont(new Font("Tahoma", 0, 18));
         jTable2.setForeground(new Color(255, 255, 255));
 
         jTable2.setFocusable(false);
@@ -354,9 +344,9 @@ public class artist_gui extends javax.swing.JFrame {
         jTable2.setUpdateSelectionOnSort(false);
         jTable2.setVerifyInputWhenFocusTarget(false);
 
-        Earning_Object data = postgres.Earnings.main(A_ID);
+        Earning_Object data = postgres.Earnings.main(user.userid);
 
-        jTable2.setModel(new DefaultTableModel(
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
                 data.table,
                 new String [] {
                         "", "", "", ""
@@ -376,13 +366,13 @@ public class artist_gui extends javax.swing.JFrame {
         jTable2.setShowVerticalLines(false);
         jScrollPane2.setViewportView(jTable2);
 
-        jLabel4.setFont(new Font("Tahoma", 0, 24)); // NOI18N
+        jLabel4.setFont(new Font("Tahoma", 0, 24));
         jLabel4.setForeground(new Color(255, 255, 255));
         jLabel4.setText("Top 10 Earning songs");
 
-        jLabel5.setFont(new Font("Tahoma", 0, 18)); // NOI18N
+        jLabel5.setFont(new Font("Tahoma", 0, 18));
         jLabel5.setForeground(new Color(255, 255, 255));
-        jLabel5.setIcon(new ImageIcon(getClass().getResource("/images/icons/icons8_money_50px.png"))); // NOI18N
+        jLabel5.setIcon(new ImageIcon(getClass().getResource("/images/icons/icons8_money_50px.png")));
         jLabel5.setText("Total Earnings: $" + data.total);
 
         GroupLayout EarningsLayout = new GroupLayout(Earnings);
@@ -409,39 +399,39 @@ public class artist_gui extends javax.swing.JFrame {
                                 .addContainerGap())
         );
 
-        jTabbedPane1.addTab("", Earnings);
+        jTabbedPane.addTab("", Earnings);
 
         Profile.setBackground(new Color(51, 51, 51));
         Profile.setForeground(new Color(255, 255, 255));
 
         jLabel6.setBackground(new Color(51, 51, 51));
-        jLabel6.setFont(new Font("Tahoma", 0, 18)); // NOI18N
+        jLabel6.setFont(new Font("Tahoma", 0, 18));
         jLabel6.setForeground(new Color(255, 255, 255));
         jLabel6.setHorizontalAlignment(SwingConstants.LEFT);
-        jLabel6.setIcon(new ImageIcon(getClass().getResource("/images/artists/"+A_ID+"/profile.jpg"))); // NOI18N
+        jLabel6.setIcon(new ImageIcon(getClass().getResource("/images/artists/"+user.userid+"/profile.jpg")));
         jLabel6.setText(user.name);
         jLabel6.setHorizontalTextPosition(SwingConstants.CENTER);
         jLabel6.setVerticalTextPosition(SwingConstants.BOTTOM);
 
         jLabel7.setBackground(new Color(51, 51, 51));
-        jLabel7.setFont(new Font("Tahoma", 0, 24)); // NOI18N
+        jLabel7.setFont(new Font("Tahoma", 0, 24));
         jLabel7.setForeground(new Color(255, 255, 255));
         jLabel7.setText("Change password");
 
         oldpasswordfield.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
         //        old ---> jTextField1ActionPerformed(evt);
-        jButton1ActionPerformed(evt);
+        HomeButtonActionPerformed(evt);
             }
         });
 
         jLabel8.setBackground(new Color(51, 51, 51));
-        jLabel8.setFont(new Font("Tahoma", 0, 18)); // NOI18N
+        jLabel8.setFont(new Font("Tahoma", 0, 18));
         jLabel8.setForeground(new Color(255, 255, 255));
         jLabel8.setText("Enter Old password");
 
         jLabel9.setBackground(new Color(51, 51, 51));
-        jLabel9.setFont(new Font("Tahoma", 0, 18)); // NOI18N
+        jLabel9.setFont(new Font("Tahoma", 0, 18));
         jLabel9.setForeground(new Color(255, 255, 255));
         jLabel9.setText("Enter new password");
 
@@ -451,12 +441,12 @@ public class artist_gui extends javax.swing.JFrame {
             }
         });
 
-        jButton8.setFont(new Font("Tahoma", 1, 14)); // NOI18N
+        jButton8.setFont(new Font("Tahoma", 1, 14));
         jButton8.setText("Submit");
         jButton8.setFocusable(false);
         jButton8.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent evt) {
-                jButton8ActionPerformed(evt, A_ID);
+                jButton8ActionPerformed(evt, user.userid);
             }
         });
 
@@ -500,27 +490,27 @@ public class artist_gui extends javax.swing.JFrame {
                                 .addContainerGap(87, Short.MAX_VALUE))
         );
 
-        jTabbedPane1.addTab("", Profile);
+        jTabbedPane.addTab("", Profile);
 
-        GroupLayout jPanel2Layout = new GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
+        GroupLayout jPanel2Layout = new GroupLayout(rightPanel);
+        rightPanel.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
                 jPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jTabbedPane1)
+                                .addComponent(jTabbedPane)
                                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
                 jPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
                         .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addContainerGap()
-                                .addComponent(jTabbedPane1)
+                                .addComponent(jTabbedPane)
                                 .addContainerGap())
         );
 
 
-        panelroot.add(jPanel2, BorderLayout.CENTER);
+        panelroot.add(rightPanel, BorderLayout.CENTER);
         getContentPane().add(panelroot, BorderLayout.CENTER);
 
         pack();
@@ -529,21 +519,21 @@ public class artist_gui extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(ActionEvent evt) {
     }
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
-        jTabbedPane1.setSelectedIndex(0);
+    private void HomeButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        jTabbedPane.setSelectedIndex(0);
     }
 
-    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {
-        jTabbedPane1.setSelectedIndex(3);
+    private void ProfileButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        jTabbedPane.setSelectedIndex(3);
 
     }
 
-    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {
-        jTabbedPane1.setSelectedIndex(2);
+    private void EarningsButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        jTabbedPane.setSelectedIndex(2);
     }
 
-    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {
-        jTabbedPane1.setSelectedIndex(1);
+    private void PopularButtonActionPerformed(java.awt.event.ActionEvent evt) {
+        jTabbedPane.setSelectedIndex(1);
     }
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt, String album_id, String name) {
@@ -577,16 +567,16 @@ public class artist_gui extends javax.swing.JFrame {
         Variable.setBackground(new Color(51, 51, 51));
         Variable.setLayout(new AbsoluteLayout());
 
-        jLabel10.setIcon(new ImageIcon(getClass().getResource("/images/albums/"+a.id+".png"))); // NOI18N
-        jLabel13.setFont(new Font("Tahoma", 0, 48)); // NOI18N
+        jLabel10.setIcon(new ImageIcon(getClass().getResource("/images/albums/"+a.id+".png")));
+        jLabel13.setFont(new Font("Tahoma", 0, 48));
         jLabel13.setForeground(new Color(255, 255, 255));
         jLabel13.setText(a.name);
 
-        jLabel14.setFont(new Font("Tahoma", 0, 18)); // NOI18N
+        jLabel14.setFont(new Font("Tahoma", 0, 18));
         jLabel14.setForeground(new Color(255, 255, 255));
         jLabel14.setText(name + " - "+ a.number_of_songs + " songs - " + a.format );
 
-        jTable3.setModel(new DefaultTableModel(
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
                 a.songs,
                 new String [] {
                         "S.no", "Album name", "views"
@@ -602,7 +592,7 @@ public class artist_gui extends javax.swing.JFrame {
         });
         jTable3.setBackground(new Color(51, 51, 51));
         jTable3.setForeground(new Color(255, 255, 255));
-        jTable3.setFont(new Font("Tahoma", 0, 18)); // NOI18N
+        jTable3.setFont(new Font("Tahoma", 0, 18));
         jTable3.setFocusable(false);
         jTable3.setRequestFocusEnabled(false);
         jTable3.setRowHeight(40);
@@ -658,22 +648,22 @@ public class artist_gui extends javax.swing.JFrame {
         );
 
         try{
-            jTabbedPane1.remove(4);
+            jTabbedPane.remove(4);
         }
         catch(Exception e){
 
         }
 
-        jTabbedPane1.addTab("", Variable);
-        jTabbedPane1.setSelectedIndex(4);
+        jTabbedPane.addTab("", Variable);
+        jTabbedPane.setSelectedIndex(4);
     }
 
-    public static void main(User user,String A_ID) {
+    public static void main(User user) {
         /* Create and display the form */
 
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new artist_gui(user,A_ID).setVisible(true);
+                new artist_gui(user).setVisible(true);
             }
         });
 
@@ -684,18 +674,18 @@ public class artist_gui extends javax.swing.JFrame {
     private javax.swing.JPanel Home;
     private javax.swing.JPanel Popular;
     private javax.swing.JPanel Profile;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
-    private javax.swing.JButton jButton6;
-    private javax.swing.JButton jButton7;
+    private javax.swing.JButton HomeButton;
+    private javax.swing.JButton albumButton1;
+    private javax.swing.JButton albumButton2;
+    private javax.swing.JButton albumButton3;
+    private javax.swing.JButton ProfileButton;
+    private javax.swing.JButton EarningsButton;
+    private javax.swing.JButton PopularButton;
     private javax.swing.JButton jButton8;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel AlbumIntroLabel;
     private javax.swing.JLabel jLabel10;
-    private javax.swing.JLabel jLabel11;
-    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel bannerLabel;
+    private javax.swing.JLabel WelcomeLabel;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel2;
@@ -706,17 +696,17 @@ public class artist_gui extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
-    private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel leftPanel;
+    private javax.swing.JPanel rightPanel;
+    private javax.swing.JPanel AlbumButtonsPanel;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel Variable;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTabbedPane jTabbedPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTabbedPane jTabbedPane;
+    private javax.swing.JTable PopularTable;
     private javax.swing.JTable jTable2;
     private javax.swing.JTable jTable3;
     private javax.swing.JPasswordField oldpasswordfield;

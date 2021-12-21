@@ -71,16 +71,15 @@ public class LoginPage implements ActionListener {
         if (login == true){
             result.setText("Welcome " + user.name + "!");
             frame.dispose();
-            String id = user.userid;
             progress.DriveProgressBar();
 
 
             if (user.userType.equals("Artists")){
-                artist_gui.main(user,id);
+                artist_gui.main(user);
             }
 
             else if (user.userType.equals("Manager")){
-                manager_gui.main(user, id);
+                manager_gui.main(user);
             }
         }
 

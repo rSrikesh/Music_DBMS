@@ -48,7 +48,7 @@ public class idToName {
 
 
         catch (Exception e) {
-            e.printStackTrace();
+//            e.printStackTrace();
             System.err.println(e.getClass().getName()+": "+e.getMessage());
             System.exit(0);
         }

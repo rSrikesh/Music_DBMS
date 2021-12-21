@@ -67,11 +67,7 @@ public class manager_gui extends javax.swing.JFrame {
         Earnings.setForeground(new java.awt.Color(255, 255, 255));
         Earnings.setText("Earnings");
         Earnings.setFocusable(false);
-        Earnings.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                EarningsActionPerformed(evt);
-            }
-        });
+        Earnings.addActionListener(this::EarningsActionPerformed);
 
         Home.setBackground(new java.awt.Color(0, 0, 0));
         Home.setForeground(new java.awt.Color(255, 255, 255));
@@ -287,7 +283,7 @@ public class manager_gui extends javax.swing.JFrame {
                         .addGroup(jPanel6Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 284, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 384, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGroup(jPanel6Layout.createSequentialGroup()
                                                 .addGap(10, 10, 10)
                                                 .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -677,7 +673,7 @@ public class manager_gui extends javax.swing.JFrame {
     }
 
 
-    public static void main(User user, String id) {
+    public static void main(User user) {
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new manager_gui(user).setVisible(true);

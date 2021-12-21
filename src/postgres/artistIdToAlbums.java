@@ -13,10 +13,7 @@ public class artistIdToAlbums {
             int i = 0;
 
             stmt = c.createStatement();
-            ResultSet count = stmt.executeQuery( "SELECT count(*) as count FROM albums WHERE artist_id = '"+ A_ID + "';");
-            while(count.next()){
-                album_count = count.getInt("count");
-            }
+            album_count = CountAlbums.main(A_ID);
             String[] albums = new String[album_count];
             ResultSet rs = stmt.executeQuery( "SELECT album_id FROM albums WHERE artist_id = '"+ A_ID + "';");
             while (rs.next()) {
