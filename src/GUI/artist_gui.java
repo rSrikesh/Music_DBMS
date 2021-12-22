@@ -41,7 +41,7 @@ public class artist_gui extends JFrame {
         jLabel3 = new JLabel();
         Earnings = new JPanel();
         jScrollPane2 = new JScrollPane();
-        jTable2 = new JTable();
+        EarningsTable = new JTable();
         jLabel4 = new JLabel();
         jLabel5 = new JLabel();
         Profile = new JPanel();
@@ -326,23 +326,23 @@ public class artist_gui extends JFrame {
         Earnings.setBackground(new Color(51, 51, 51));
         Earnings.setForeground(new Color(255, 255, 255));
 
-        jTable2.setBackground(new Color(51, 51, 51));
-        jTable2.setFont(new Font("Tahoma", 0, 18));
-        jTable2.setForeground(new Color(255, 255, 255));
+        EarningsTable.setBackground(new Color(51, 51, 51));
+        EarningsTable.setFont(new Font("Tahoma", 0, 18));
+        EarningsTable.setForeground(new Color(255, 255, 255));
 
-        jTable2.setFocusable(false);
-        jTable2.setRequestFocusEnabled(false);
+        EarningsTable.setFocusable(false);
+        EarningsTable.setRequestFocusEnabled(false);
 
-        jTable2.setRowSelectionAllowed(false);
+        EarningsTable.setRowSelectionAllowed(false);
 
-        jTable2.setShowVerticalLines(false);
-        jTable2.getTableHeader().setReorderingAllowed(false);
-        jTable2.setUpdateSelectionOnSort(false);
-        jTable2.setVerifyInputWhenFocusTarget(false);
+        EarningsTable.setShowVerticalLines(false);
+        EarningsTable.getTableHeader().setReorderingAllowed(false);
+        EarningsTable.setUpdateSelectionOnSort(false);
+        EarningsTable.setVerifyInputWhenFocusTarget(false);
 
         Earning_Object data = postgres.Earnings.main(user.userid);
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        EarningsTable.setModel(new javax.swing.table.DefaultTableModel(
                 data.table,
                 new String [] {
                         "", "", "", ""
@@ -357,10 +357,10 @@ public class artist_gui extends JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable2.setFocusable(false);
-        jTable2.setRowHeight(40);
-        jTable2.setShowVerticalLines(false);
-        jScrollPane2.setViewportView(jTable2);
+        EarningsTable.setFocusable(false);
+        EarningsTable.setRowHeight(40);
+        EarningsTable.setShowVerticalLines(false);
+        jScrollPane2.setViewportView(EarningsTable);
 
         jLabel4.setFont(new Font("Tahoma", 0, 24));
         jLabel4.setForeground(new Color(255, 255, 255));
@@ -703,7 +703,7 @@ public class artist_gui extends JFrame {
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane;
     private javax.swing.JTable PopularTable;
-    private javax.swing.JTable jTable2;
+    private javax.swing.JTable EarningsTable;
     private javax.swing.JTable jTable3;
     private javax.swing.JPasswordField oldpasswordfield;
     private javax.swing.JPasswordField newpasswordfield;
