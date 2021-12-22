@@ -57,8 +57,8 @@ public class artist_gui extends JFrame {
         jLabel13 = new JLabel();
         jSeparator1 = new JSeparator();
         jLabel14 = new JLabel();
-        jScrollPane3 = new JScrollPane();
-        jTable3 = new JTable();
+        AlbumScrollPane = new JScrollPane();
+        albumTable = new JTable();
 
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setIconImage(new ImageIcon("src\\images\\music.png").getImage());
@@ -253,6 +253,7 @@ public class artist_gui extends JFrame {
         PopularTable.setRowSelectionAllowed(false);
         PopularTable.setShowVerticalLines(false);
         PopularTable.getTableHeader().setReorderingAllowed(false);
+        PopularTable.getTableHeader().setResizingAllowed(false);
 
         PopularTable.setModel(new javax.swing.table.DefaultTableModel(
                 PopularSongs.main(user.userid),
@@ -339,7 +340,7 @@ public class artist_gui extends JFrame {
         EarningsTable.getTableHeader().setReorderingAllowed(false);
         EarningsTable.setUpdateSelectionOnSort(false);
         EarningsTable.setVerifyInputWhenFocusTarget(false);
-
+        EarningsTable.getTableHeader().setResizingAllowed(false);
         Earning_Object data = postgres.Earnings.main(user.userid);
 
         EarningsTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -350,7 +351,7 @@ public class artist_gui extends JFrame {
         )
         {
             boolean[] canEdit = new boolean [] {
-                    false, false, false
+                    false, false, false, false
             };
 
             public boolean isCellEditable(int rowIndex, int columnIndex) {
@@ -572,7 +573,7 @@ public class artist_gui extends JFrame {
         jLabel14.setForeground(new Color(255, 255, 255));
         jLabel14.setText(name + " - "+ a.number_of_songs + " songs - " + a.format );
 
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+        albumTable.setModel(new javax.swing.table.DefaultTableModel(
                 a.songs,
                 new String [] {
                         "S.no", "Album name", "views"
@@ -586,23 +587,21 @@ public class artist_gui extends JFrame {
                 return canEdit [columnIndex];
             }
         });
-        jTable3.setBackground(new Color(51, 51, 51));
-        jTable3.setForeground(new Color(255, 255, 255));
-        jTable3.setFont(new Font("Tahoma", 0, 18));
-        jTable3.setFocusable(false);
-        jTable3.setRequestFocusEnabled(false);
-        jTable3.setRowHeight(40);
-        jTable3.setRowSelectionAllowed(false);
-        jTable3.setSelectionBackground(new Color(255, 255, 255));
-        jTable3.setShowVerticalLines(false);
-        jTable3.getTableHeader().setReorderingAllowed(false);
-        jTable3.setUpdateSelectionOnSort(false);
-        jTable3.setVerifyInputWhenFocusTarget(false);
-        jScrollPane3.setViewportView(jTable3);
-        if (jTable3.getColumnModel().getColumnCount() > 0) {
-            jTable3.getColumnModel().getColumn(0).setResizable(false);
-            jTable3.getColumnModel().getColumn(1).setResizable(false);
-            jTable3.getColumnModel().getColumn(2).setResizable(false);
+        albumTable.setBackground(new Color(51, 51, 51));
+        albumTable.setForeground(new Color(255, 255, 255));
+        albumTable.setFont(new Font("Tahoma", 0, 18));
+        albumTable.setFocusable(false);
+        albumTable.setRowHeight(40);
+        albumTable.setRowSelectionAllowed(false);
+        albumTable.setSelectionBackground(new Color(255, 255, 255));
+        albumTable.setShowVerticalLines(false);
+        albumTable.getTableHeader().setReorderingAllowed(false);
+
+        AlbumScrollPane.setViewportView(albumTable);
+        if (albumTable.getColumnModel().getColumnCount() > 0) {
+            albumTable.getColumnModel().getColumn(0).setResizable(false);
+            albumTable.getColumnModel().getColumn(1).setResizable(false);
+            albumTable.getColumnModel().getColumn(2).setResizable(false);
         }
 
         GroupLayout jPanel5Layout = new GroupLayout(Variable);
@@ -621,7 +620,7 @@ public class artist_gui extends JFrame {
                                 .addComponent(jSeparator1, GroupLayout.PREFERRED_SIZE, 992, GroupLayout.PREFERRED_SIZE))
                         .addGroup(jPanel5Layout.createSequentialGroup()
                                 .addGap(10, 10, 10)
-                                .addComponent(jScrollPane3, GroupLayout.PREFERRED_SIZE, 984, GroupLayout.PREFERRED_SIZE))
+                                .addComponent(AlbumScrollPane, GroupLayout.PREFERRED_SIZE, 984, GroupLayout.PREFERRED_SIZE))
         );
         jPanel5Layout.setVerticalGroup(
                 jPanel5Layout.createParallelGroup(GroupLayout.Alignment.LEADING)
@@ -639,7 +638,7 @@ public class artist_gui extends JFrame {
                                 .addGap(34, 34, 34)
                                 .addComponent(jSeparator1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jScrollPane3, GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE)
+                                .addComponent(AlbumScrollPane, GroupLayout.DEFAULT_SIZE, 289, Short.MAX_VALUE)
                                 .addContainerGap())
         );
 
@@ -699,12 +698,12 @@ public class artist_gui extends JFrame {
     private javax.swing.JPanel Variable;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
+    private javax.swing.JScrollPane AlbumScrollPane;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTabbedPane jTabbedPane;
     private javax.swing.JTable PopularTable;
     private javax.swing.JTable EarningsTable;
-    private javax.swing.JTable jTable3;
+    private javax.swing.JTable albumTable;
     private javax.swing.JPasswordField oldpasswordfield;
     private javax.swing.JPasswordField newpasswordfield;
     private javax.swing.JPanel panelroot;
