@@ -571,7 +571,7 @@ public class artist_gui extends JFrame {
 
         jLabel14.setFont(new Font("Tahoma", 0, 18));
         jLabel14.setForeground(new Color(255, 255, 255));
-        jLabel14.setText(name + " - "+ a.number_of_songs + " songs - " + a.format );
+        jLabel14.setText(name + " - "+ a.year +" - "+ a.number_of_songs + " songs - " + a.format );
 
         albumTable.setModel(new javax.swing.table.DefaultTableModel(
                 a.songs,

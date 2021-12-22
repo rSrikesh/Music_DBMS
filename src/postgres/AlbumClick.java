@@ -13,12 +13,13 @@ public class AlbumClick {
             Class.forName("org.postgresql.Driver");
             c = DriverManager.getConnection(creds.url, creds.username, creds.password);
             stmt = c.createStatement();
-            String sql = "SELECT album_name,audio_format, number_of_songs FROM albums WHERE album_id = '"+Album_ID+"';";
+            String sql = "SELECT album_name,audio_format, number_of_songs, date_part('year', copyright_date) FROM albums WHERE album_id = '"+Album_ID+"';";
             ResultSet rs = stmt.executeQuery(sql);
             while(rs.next()) {
                 album.name = rs.getString("album_name");
                 album.format = rs.getString("audio_format");
                 album.number_of_songs = rs.getInt("number_of_songs");
+                album.year = rs.getString("date_part");
             }
             rs.close();
             stmt.close();

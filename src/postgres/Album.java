@@ -6,5 +6,5 @@ public class Album {
     public String format;
     public String id;
     public int number_of_songs;
-
+    public String year;
 }
