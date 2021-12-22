@@ -249,10 +249,8 @@ public class artist_gui extends JFrame {
         PopularTable.setForeground(new Color(255, 255, 255));
         PopularTable.setFont(new Font("Tahoma", 0, 18));
         PopularTable.setFocusable(false);
-        PopularTable.setRequestFocusEnabled(false);
         PopularTable.setRowHeight(40);
         PopularTable.setRowSelectionAllowed(false);
-        PopularTable.setSelectionBackground(new Color(255, 255, 255));
         PopularTable.setShowVerticalLines(false);
         PopularTable.getTableHeader().setReorderingAllowed(false);
 
@@ -272,8 +270,6 @@ public class artist_gui extends JFrame {
             }
         });
 
-        PopularTable.setRowHeight(40);
-        PopularTable.setShowVerticalLines(false);
         jScrollPane1.setViewportView(PopularTable);
 
         jLabel2.setFont(new Font("Tahoma", 0, 36));
