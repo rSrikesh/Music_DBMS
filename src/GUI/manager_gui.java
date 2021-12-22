@@ -164,11 +164,7 @@ public class manager_gui extends javax.swing.JFrame {
         albumButton1.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         albumButton1.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         albumButton1.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
-        albumButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                albumButton1ActionPerformed(evt);
-            }
-        });
+
 
 
         albumButton2.setBackground(new java.awt.Color(51, 51, 51));
@@ -180,11 +176,7 @@ public class manager_gui extends javax.swing.JFrame {
         albumButton2.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
         albumButton2.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
         albumButton2.setVisible(false);
-        albumButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                albumButton2ActionPerformed(evt);
-            }
-        });
+
 
         albumButton3.setBackground(new java.awt.Color(51, 51, 51));
         albumButton3.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
@@ -203,11 +195,7 @@ public class manager_gui extends javax.swing.JFrame {
             }
         }
 
-            albumButton3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                albumButton3ActionPerformed(evt);
-            }
-        });
+
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -530,12 +518,6 @@ public class manager_gui extends javax.swing.JFrame {
         jLabel5.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
         jLabel5.setVerticalTextPosition(javax.swing.SwingConstants.BOTTOM);
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
-            }
-        });
-
         jLabel6.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Edit Address");
@@ -643,21 +625,7 @@ public class manager_gui extends javax.swing.JFrame {
         jTabbedPane1.setSelectedIndex(3);
     }
 
-    private void albumButton1ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
 
-    private void albumButton2ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
-
-    private void albumButton3ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
-
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {
-        // TODO add your handling code here:
-    }
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
